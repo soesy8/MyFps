@@ -57,7 +57,7 @@ namespace MyFps
         {
             //wasd 입력값 처리 : 인스턴스이름.액션맵이름.액션이름.ReadValue
             Move = inputActions.Player.Move.ReadValue<Vector2>();
-            Look = inputActions.Player.Move.ReadValue<Vector2>();
+            Look = inputActions.Player.Look.ReadValue<Vector2>();
 
         }
         #endregion

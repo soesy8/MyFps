@@ -40,10 +40,24 @@ namespace MyFps
         #region Custom Method
         void CameraRotate()
         {
-            if (input.Look.sqrMagnitude < 0.01f)
-            {
+            if (input.Look.sqrMagnitude < 0.01f) return;
+            
+            //좌우(플레이어의 트랜스폼을 회전)
+            rotationVelocity = input.Look.x * rotationSpeed * Time.deltaTime * sensivity;
+            transform.Rotate(Vector3.up * rotationVelocity);
 
-            }
+            //위아래(카메라 루트를 회전)
+            cameraTargetPitch -= input.Look.y * rotationSpeed * Time.deltaTime * sensivity;
+            cameraTargetPitch = ClampAngle(cameraTargetPitch, bottomClamp, topClamp);
+            cameraRoot.localRotation = Quaternion.Euler(cameraTargetPitch, 0f, 0f);
+
+        }
+
+        private float ClampAngle(float angle, float min, float max)
+        {
+            if (angle < -360f) angle += 360f;
+            if (angle > -360f) angle -= 360f;
+            return Mathf.Clamp(angle, min, max);
         }
         #endregion
     }
