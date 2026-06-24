@@ -5503,6 +5503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 695440078174313793, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
+      propertyPath: actionUI
+      value: 
+      objectReference: {fileID: 2092307926}
     - target: {fileID: 6762755159240730676, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7487,7 +7491,6 @@ GameObject:
   - component: {fileID: 1957459950}
   - component: {fileID: 1957459949}
   - component: {fileID: 1957459948}
-  - component: {fileID: 1957459952}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -7510,7 +7513,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7588,18 +7591,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450653668381211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1957459952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957459947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceae104316a2f564cbad0d4b3c9571b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyFps.DoorCellOpen
 --- !u!1 &1979649272
 GameObject:
   m_ObjectHideFlags: 0
@@ -8019,6 +8010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653668381211}
   - component: {fileID: 919132149195196578}
+  - component: {fileID: 919132149195196579}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -8048,6 +8040,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &919132149195196579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149195196577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceae104316a2f564cbad0d4b3c9571b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyFps.DoorCellOpen
+  animator: {fileID: 919132149195196578}
+  doorTrigger: {fileID: 1957459948}
 --- !u!4 &2902008074520548888
 Transform:
   m_ObjectHideFlags: 0

@@ -103,6 +103,10 @@ namespace MyFps
             {
                 IsInteract = true;
             }
+            else if (inputActions.Player.Interact.WasReleasedThisFrame())
+            {
+                IsInteract= false;
+            }
         }
         #endregion
 
