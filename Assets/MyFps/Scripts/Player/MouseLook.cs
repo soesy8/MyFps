@@ -30,6 +30,13 @@ namespace MyFps
             input = GetComponent<CharacterInput>();
         }
 
+        private void Start()
+        {
+            //마우스 커서 초기화
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         private void LateUpdate()
         {
             //카메라 회전
@@ -41,7 +48,7 @@ namespace MyFps
         void CameraRotate()
         {
             if (input.Look.sqrMagnitude < 0.01f) return;
-            
+
             //좌우(플레이어의 트랜스폼을 회전)
             rotationVelocity = input.Look.x * rotationSpeed * Time.deltaTime * sensivity;
             transform.Rotate(Vector3.up * rotationVelocity);
@@ -56,7 +63,8 @@ namespace MyFps
         private float ClampAngle(float angle, float min, float max)
         {
             if (angle < -360f) angle += 360f;
-            if (angle > -360f) angle -= 360f;
+            if (angle > 360f) angle -= 360f;
+
             return Mathf.Clamp(angle, min, max);
         }
         #endregion
