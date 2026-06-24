@@ -22,6 +22,9 @@ namespace MyFps
 
         //점프
         [SerializeField] private bool isJump;
+
+        //상호작용
+        [SerializeField] private bool isInteract;
         #endregion
 
         #region Property
@@ -47,6 +50,12 @@ namespace MyFps
         {
             get { return isJump; }
             set { isJump = value; }
+        }
+
+        public bool IsInteract
+        {
+            get {return  isInteract; }
+            set { isInteract = value; }
         }
         #endregion
 
@@ -88,6 +97,11 @@ namespace MyFps
             else if (inputActions.Player.Sprint.WasReleasedThisFrame())
             {
                 IsSprint = false;
+            }
+
+            if (inputActions.Player.Interact.WasPressedThisFrame())
+            {
+                IsInteract = true;
             }
         }
         #endregion

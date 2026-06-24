@@ -9,20 +9,14 @@ namespace MyFps
     /// </summary>
     public class DoorCellOpen : MonoBehaviour
     {
-        //참조 / 확실하지 않음
-        private Animator animator;
-        private BoxCollider triggerCollider;
+        [SerializeField] private Animator animator;
+        [SerializeField] private Collider doorTrigger;
 
-        private void Awake()
-        {
-            animator = GetComponent<Animator>();
-            triggerCollider = GetComponent<BoxCollider>();
-        }
-
-        public void OpneDoor()
+        public void OpenDoor()
         {
             animator.SetBool("IsOpen", true);
-            triggerCollider.enabled = false;
+
+            doorTrigger.enabled = false;
         }
     }
 }
