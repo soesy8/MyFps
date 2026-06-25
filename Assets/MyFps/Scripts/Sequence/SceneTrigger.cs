@@ -36,7 +36,6 @@ namespace MyFps
         IEnumerator GuideRoutine()
         {
             player.SetActive(false);
-
             dialogueText.SetActive(true);
 
             yield return new WaitForSeconds(1f);
@@ -46,9 +45,11 @@ namespace MyFps
             yield return new WaitForSeconds(1f);
 
             player.SetActive(true);
-
             IsTriggered = true;
 
+            yield return new WaitForSeconds(1f);
+
+            dialogueText.SetActive(false);
             Destroy(gameObject);
         }
 
