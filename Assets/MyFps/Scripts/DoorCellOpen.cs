@@ -11,10 +11,15 @@ namespace MyFps
     {
         [SerializeField] private Animator animator;
         [SerializeField] private Collider doorTrigger;
+        [SerializeField] private AudioSource audioSource;
+
 
         public void OpenDoor()
         {
+            if (audioSource == null) return;
+
             animator.SetBool("IsOpen", true);
+            audioSource.Play();
 
             doorTrigger.enabled = false;
         }

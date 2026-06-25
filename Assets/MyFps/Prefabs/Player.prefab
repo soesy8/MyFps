@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 695440078174313793}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.CharacterInput
   isSprint: 0
   isJump: 0
+  isInteract: 0
 --- !u!114 &5081331787800282473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4ff270fcfb02b419d8459fbe6100fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  interactDistance: 2
+  actionUI: {fileID: 0}
+  extraCross: {fileID: 0}
 --- !u!1 &204815929251589630
 GameObject:
   m_ObjectHideFlags: 0
