@@ -24,6 +24,12 @@ namespace MyFps
             IsTriggered = false;
         }
 
+        private void Update()
+        {
+            if (guideArrow == null) return;
+            guideArrow.transform.LookAt(player.transform.position);
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -50,7 +56,7 @@ namespace MyFps
             yield return new WaitForSeconds(1f);
 
             dialogueText.SetActive(false);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
     }
