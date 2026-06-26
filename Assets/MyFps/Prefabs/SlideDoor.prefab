@@ -369,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d2bfa0078dfd744a4af58226c6ca75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.SlideDoor
+  animator: {fileID: 59796030193853978}
 --- !u!1 &2224355834969619402
 GameObject:
   m_ObjectHideFlags: 0
