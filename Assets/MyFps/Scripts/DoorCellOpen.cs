@@ -7,14 +7,13 @@ namespace MyFps
     /// 가까이 가서 마우스 가져가면 인터렉티브 UI를 보여준다
     /// 액션 : 문을 연다
     /// </summary>
-    public class DoorCellOpen : MonoBehaviour
+    public class DoorCellOpen : Interactable
     {
         [SerializeField] private Animator animator;
         [SerializeField] private Collider doorTrigger;
         [SerializeField] private AudioSource audioSource;
 
-
-        public void OpenDoor()
+        public override void Interact()
         {
             if (audioSource == null) return;
 

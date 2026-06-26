@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 namespace MyFps
 {
-    public class SceneTrigger : MonoBehaviour
+    public class BTriggerEvent : MonoBehaviour
     {
         [SerializeField] private GameObject player;         //플레이어
-        [SerializeField] private GameObject dialogueText;   //대사
+        [SerializeField] private TextMeshProUGUI sequenceText;   //대사
         [SerializeField] private GameObject guideArrow;     //가이드 화살표
 
         private bool isTriggered = false;
@@ -19,7 +20,7 @@ namespace MyFps
 
         private void Start()
         {
-            dialogueText.SetActive(false);
+            //sequenceText.SetActive(false);
             guideArrow.SetActive(false);
             IsTriggered = false;
         }
@@ -42,7 +43,8 @@ namespace MyFps
         IEnumerator GuideRoutine()
         {
             player.SetActive(false);
-            dialogueText.SetActive(true);
+            sequenceText.gameObject.SetActive(true);
+            sequenceText.text = "Looks like a weapon on that table.";
 
             yield return new WaitForSeconds(1f);
 
@@ -55,7 +57,9 @@ namespace MyFps
 
             yield return new WaitForSeconds(1f);
 
-            dialogueText.SetActive(false);
+            sequenceText.text = "";
+            sequenceText.gameObject.SetActive(false);
+            transform.GetComponent<BoxCollider>().enabled = false;
             //Destroy(gameObject);
         }
 

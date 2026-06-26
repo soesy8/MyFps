@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 namespace MyFps
 {
@@ -11,11 +12,13 @@ namespace MyFps
         [SerializeField] private SceneFader fader;
         [SerializeField] private GameObject player;
         [SerializeField] private float faderDelay = 1f;
-        [SerializeField] private GameObject scenarioText;
+        //[SerializeField] private GameObject scenarioText;
+        [SerializeField] private TextMeshProUGUI scenarioText;
 
         private void Start()
         {
-            scenarioText.SetActive(false);
+            //scenarioText.SetActive(false);
+            scenarioText.gameObject.SetActive(false);
 
             StartCoroutine(OpeningRoutine());
         }
@@ -26,7 +29,8 @@ namespace MyFps
             player.SetActive(false);
 
             // 텍스트 출력
-            scenarioText.SetActive(true);
+            scenarioText.gameObject.SetActive(true);
+            scenarioText.text = "I need get out of here";
 
             // 페이드인
             fader.FadeStart(faderDelay);
@@ -40,7 +44,8 @@ namespace MyFps
             yield return new WaitForSeconds(3f);
 
             // 텍스트 제거
-            scenarioText.SetActive(false);
+            scenarioText.text = "";
+            scenarioText.gameObject.SetActive(false);
         }
     }
 }

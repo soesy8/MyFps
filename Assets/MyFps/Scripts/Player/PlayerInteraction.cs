@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 namespace MyFps
 {
@@ -7,6 +8,7 @@ namespace MyFps
         [SerializeField] private float interactDistance = 2f;
         [SerializeField] private GameObject actionUI;
         [SerializeField] private GameObject extraCross;
+        [SerializeField] private TMP_Text actionText;
 
         private CharacterInput input;
 
@@ -21,34 +23,40 @@ namespace MyFps
 
             if (Physics.Raycast(ray, out RaycastHit hit, interactDistance))
             {
-                DoorCellOpen door = hit.collider.GetComponentInParent<DoorCellOpen>();
+                Interactable interactable = hit.collider.GetComponentInParent<Interactable>();
 
-                if (door != null)
+                if (interactable != null)
                 {
                     actionUI.SetActive(true);
                     extraCross.SetActive(true);
+                    actionText.text = interactable.InteractionText;
 
                     if (input.IsInteract)
                     {
-                        door.OpenDoor();
+                        interactable.Interact();
 
-                        actionUI.SetActive(false);
-                        extraCross.SetActive(false);
+                        HideInteractionUI();
 
                         input.IsInteract = false;
                     }
                 }
                 else
                 {
-                    actionUI.SetActive(false);
-                    extraCross.SetActive(false);
+                    HideInteractionUI();
                 }
             }
             else
             {
-                actionUI.SetActive(false);
-                extraCross.SetActive(false);
+                HideInteractionUI();
             }
+        }
+
+        //Custom Method
+        private void HideInteractionUI()
+        {
+            actionText.text = "";
+            actionUI.SetActive(false);
+            extraCross.SetActive(false);
         }
     }
 }
