@@ -12,15 +12,16 @@ namespace MyFps
 
         [SerializeField] private DamageEffect damageEffect;
 
-        [SerializeField] private GameObject gameoverUI;
-
         private bool isDeath = false;
+
+        [SerializeField] private GameManager gameManager;
         #endregion
 
         #region Unity Event Method
         private void Awake()
         {
             //player = GetComponent<CharacterController>();
+            gameManager = FindFirstObjectByType<GameManager>();
         }
         private void Start()
         {
@@ -43,16 +44,10 @@ namespace MyFps
 
         void Die()
         {
-            isDeath = true;
-
             //죽음처리
             //게임오버
-            //Debug.Log("GameOver");
-            gameoverUI.SetActive(true);
-            
-            
-
-            //Time.timeScale = 0f;
+            gameManager.GameOver();
+            isDeath = true;
         }
         #endregion
     }
