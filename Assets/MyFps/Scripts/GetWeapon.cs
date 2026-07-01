@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 namespace MyFps
 {
@@ -7,6 +8,7 @@ namespace MyFps
         [SerializeField] private Collider gunTrigger;
         [SerializeField] private GameObject guideArrow;
         [SerializeField] private GameObject playerPistol;
+        [SerializeField] private GameObject ammoUI;
 
         public override void Interact(PlayerInteraction player)
         {
@@ -14,9 +16,13 @@ namespace MyFps
 
             playerPistol.SetActive(true);
 
+            ammoUI.SetActive(true);
+
             PlayerShoot shoot = playerPistol.GetComponent<PlayerShoot>();
 
             player.SetPlayerShoot(shoot);
+
+            shoot.UpdateAmmoUI();
 
             Destroy(gunTrigger.gameObject);
         }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ namespace MyFps
         [SerializeField] private SceneFader fader;
         [SerializeField] private GameObject pauseUI;
         [SerializeField] private GameObject gameoverUI;
+        [SerializeField] private InputActionReference pauseAction;
 
         private void Awake()
         {
@@ -18,11 +20,11 @@ namespace MyFps
 
         private void Update()
         {
-            /*if (Input.GetKeyDown(KeyCode.Escape))
+            if (pauseAction.action.WasPressedThisFrame())
             {
                 Debug.Log("P");
                 Toggle();
-            }*/
+            }
         }
 
         public void GameOver()
@@ -52,12 +54,10 @@ namespace MyFps
             fader.FadeTo("MainMenu");
         }
 
-        /*//일시정지 pause - 토글기능, timescale = 0, 
+        //일시정지 pause - 토글기능, timescale = 0, 
         public void Toggle()
         {
-
+            Debug.Log("Toggle");
         }
-*/
-
     }
 }

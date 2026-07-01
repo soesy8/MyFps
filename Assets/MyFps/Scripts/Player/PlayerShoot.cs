@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 namespace MyFps
 {
@@ -9,13 +10,16 @@ namespace MyFps
         private Animator animator;
         public Transform firePoint;
         [SerializeField] private InputActionReference shootAction;
+        [SerializeField] private InputActionReference reloadAction;
 
         //무기 옵션
         [SerializeField] private float attackRange = 100f;
         [SerializeField] private float attackDamage = 5f;
         [SerializeField] private int ammoSize = 7;      // 탄창 크기
         [SerializeField] private int currentAmmo = 7;   // 현재 탄창
-        [SerializeField] private int reserveAmmo = 35;      // 예비 탄약
+        [SerializeField] private int reserveAmmo = 0;      // 예비 탄약
+
+        [SerializeField] private TextMeshProUGUI ammoUI;
 
         //효과
         public GameObject hitImpactPrefab;
@@ -48,12 +52,30 @@ namespace MyFps
 
         private void Update()
         {
+            if(reloadAction.action.WasPressedThisFrame())
+            {
+                if (currentAmmo < ammoSize && reserveAmmo > 0)
+                {
+                    Debug.Log("Reload");
+                    int ammoNeeded = ammoSize - currentAmmo;
+                    int ammoToReload = Mathf.Min(ammoNeeded, reserveAmmo);
+                    currentAmmo += ammoToReload;
+                    reserveAmmo -= ammoToReload;
+                    UpdateAmmoUI();
+                }
+            }
+
             if (shootAction.action.WasPressedThisFrame())
             {
-                if (currentAmmo <= 0) return;
+                if (currentAmmo <= 0)
+                {
+                    Debug.Log("You need to reload");
+                    return;
+                }
 
-                currentAmmo--;
                 Shoot();
+                currentAmmo--;
+                UpdateAmmoUI();
             }
         }
 
@@ -111,6 +133,12 @@ namespace MyFps
         public void AddAmmo(int amount)
         {
             reserveAmmo += amount;
+            UpdateAmmoUI();
+        }
+
+        public void UpdateAmmoUI()
+        {
+            ammoUI.text = $"{currentAmmo} / {reserveAmmo}";
         }
         #endregion
     }
