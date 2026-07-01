@@ -34,8 +34,8 @@ namespace MyFps
         //공격
         [SerializeField] private float attakRange = 1.5f;   //공격 범위
         [SerializeField] private float attackDamage = 5f;   //공격력
-        [SerializeField] private float attackTimer = 2f;
-        private float countdown = 0f;
+        /*[SerializeField] private float attackTimer = 2f;
+        private float countdown = 0f;*/
 
         //체력
         [SerializeField] private float maxHealth = 20f;
@@ -113,7 +113,7 @@ namespace MyFps
                     break;
 
                 case RobotState.R_Attack:   //일정거리안에 들어오면 공격한다
-                    //공격 타이머
+                    /*//공격 타이머
                     countdown += Time.deltaTime;
                     if (countdown >= attackTimer)
                     {
@@ -122,7 +122,7 @@ namespace MyFps
 
                         //타이머 초기화
                         countdown = 0f;
-                    }
+                    }*/
 
                     //타겟을 바라본다
                     transform.LookAt(thePlayer);

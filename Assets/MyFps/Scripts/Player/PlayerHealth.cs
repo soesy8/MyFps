@@ -1,4 +1,5 @@
 using UnityEngine;
+//using UnityEngine.Events;
 
 namespace MyFps
 {
@@ -7,15 +8,21 @@ namespace MyFps
         #region Variables
         [SerializeField] private float maxHp = 20f;
         private float hp;
-
-        //[SerializeField] private GameObject player;
-
         [SerializeField] private DamageEffect damageEffect;
+        //public UnityAction<float> onDamaged;
+        //public UnityAcion onDie;
 
         private bool isDeath = false;
 
         [SerializeField] private GameManager gameManager;
         #endregion
+
+
+        /*#region Properties
+        public float HP => hp;
+        #endregion*/
+
+
 
         #region Unity Event Method
         private void Awake()
@@ -34,6 +41,9 @@ namespace MyFps
         {
             hp -= damage;
             damageEffect.Play();
+
+            //onDamaged?.Invoke(damage);
+
             //Debug.Log($"{gameObject.name}, -{damage}, HP : {hp}");
             //뎀지 효과 처리
             if (hp <= 0f && isDeath == false)
@@ -46,6 +56,7 @@ namespace MyFps
         {
             //죽음처리
             //게임오버
+            //onDie?.Invoke();
             gameManager.GameOver();
             isDeath = true;
         }
