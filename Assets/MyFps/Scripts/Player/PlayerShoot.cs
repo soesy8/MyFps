@@ -14,6 +14,9 @@ namespace MyFps
         //무기 옵션
         [SerializeField] private float attackRange = 100f;
         [SerializeField] private float attackDamage = 5f;
+        [SerializeField] private int ammoSize = 7;      // 탄창 크기
+        [SerializeField] private int currentAmmo = 7;   // 현재 탄창
+        [SerializeField] private int reserveAmmo = 35;      // 예비 탄약
 
         //효과
         public GameObject hitImpactPrefab;
@@ -21,6 +24,11 @@ namespace MyFps
 
         private string shootTrigger = "ShootTrigger";
         #endregion
+
+        public int CurrentAmmo => currentAmmo;
+        public int AmmoSize => ammoSize;
+        public int ReserveAmmo => reserveAmmo;
+
 
         #region Unity Event Method
         private void Awake()
@@ -42,6 +50,9 @@ namespace MyFps
         {
             if (shootAction.action.WasPressedThisFrame())
             {
+                if (currentAmmo <= 0) return;
+
+                currentAmmo--;
                 Shoot();
             }
         }
@@ -90,7 +101,11 @@ namespace MyFps
             //명중하지 못해도 발사 연출은 나감
             animator.SetTrigger(shootTrigger);
             shootAudio.Play();
+        }
 
+        public void AddAmmo(int amount)
+        {
+            reserveAmmo += amount;
         }
         #endregion
     }

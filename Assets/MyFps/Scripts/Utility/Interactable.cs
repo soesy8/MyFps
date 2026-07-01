@@ -8,6 +8,6 @@ namespace MyFps
 
         public string InteractionText => interactionText;
 
-        public abstract void Interact();
+        public abstract void Interact(PlayerInteraction player);
     }
 }

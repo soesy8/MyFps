@@ -11,10 +11,14 @@ namespace MyFps
         [SerializeField] private TMP_Text actionText;
 
         private CharacterInput input;
+        private PlayerShoot playerShoot;
+
+        public PlayerShoot PlayerShoot => playerShoot;
 
         private void Awake()
         {
             input = GetComponent<CharacterInput>();
+            playerShoot = GetComponentInChildren<PlayerShoot>();
         }
 
         private void Update()
@@ -33,7 +37,7 @@ namespace MyFps
 
                     if (input.IsInteract)
                     {
-                        interactable.Interact();
+                        interactable.Interact(this);
 
                         HideInteractionUI();
 
@@ -57,6 +61,11 @@ namespace MyFps
             actionText.text = "";
             actionUI.SetActive(false);
             extraCross.SetActive(false);
+        }
+
+        public void SetPlayerShoot(PlayerShoot shoot)
+        {
+            playerShoot = shoot;
         }
     }
 }

@@ -4,11 +4,14 @@ namespace MyFps
 {
     public class AmmoBox : Interactable
     {
-        public override void Interact()
-        {
-            //총알 +7
+        [SerializeField] private int ammoAmount = 7;
 
-            //오브젝트 파괴
+        public override void Interact(PlayerInteraction player)
+        {
+            player.PlayerShoot.AddAmmo(ammoAmount);
+
+            Debug.Log($"Ammo +{ammoAmount}");
+
             Destroy(gameObject);
         }
     }

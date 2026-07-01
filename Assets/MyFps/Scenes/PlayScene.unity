@@ -6302,6 +6302,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196396734}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &200623188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3533987955212617737, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
+  m_PrefabInstance: {fileID: 326070857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &242826604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6555,14 +6560,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1402152112}
     - target: {fileID: 747450105332708054, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
-      propertyPath: maxHp
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 747450105332708054, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
-      propertyPath: gameoverUI
-      value: 
-      objectReference: {fileID: 1958900307}
-    - target: {fileID: 747450105332708054, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 424065330}
@@ -6570,10 +6567,14 @@ PrefabInstance:
       propertyPath: damageEffect
       value: 
       objectReference: {fileID: 87842816}
-    - target: {fileID: 2788947274870454784, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
-      propertyPath: hitImpactPrefab
+    - target: {fileID: 1775480673180534219, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
+      propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 3061015098213265699, guid: 8dab52b39bb64d44da252b3dbf79fe59, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646007902504262961, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3533987955212617737, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6618,13 +6619,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9129028890044852754, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
+      propertyPath: pistolShot
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129028890044852754, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
+      propertyPath: shootAudio
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 397965659765882144, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1713117015}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
 --- !u!1 &326650644
 GameObject:
@@ -7523,7 +7529,7 @@ MonoBehaviour:
   interactionText: Pick Up Pistol
   gunTrigger: {fileID: 422153385}
   guideArrow: {fileID: 178931188}
-  playerPistol: {fileID: 985443419}
+  playerPistol: {fileID: 200623188}
 --- !u!65 &422153385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7616,7 +7622,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1021065235}
-  m_Father: {fileID: 2105896138}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &424065329
 GameObject:
@@ -10017,11 +10023,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985301612}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &985443419 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3533987955212617737, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
-  m_PrefabInstance: {fileID: 326070857}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1004789147
 GameObject:
   m_ObjectHideFlags: 0
@@ -14528,40 +14529,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691982931}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1713117013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 397965659765882144, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
-  m_PrefabInstance: {fileID: 326070857}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1713117015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713117013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_CustomShadowLayers: 0
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1 &1719502523
 GameObject:
   m_ObjectHideFlags: 0
@@ -17271,7 +17238,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1372524914}
-  - {fileID: 422153388}
   - {fileID: 1149249343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20696,6 +20662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.AmmoBox
   interactionText: Get Ammo
+  ammoAmount: 7
 --- !u!65 &9035132555816970001
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20756,3 +20723,4 @@ SceneRoots:
   - {fileID: 2100122656}
   - {fileID: 2105896138}
   - {fileID: 9035132555816969999}
+  - {fileID: 422153388}

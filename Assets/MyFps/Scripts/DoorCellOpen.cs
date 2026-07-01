@@ -13,7 +13,7 @@ namespace MyFps
         [SerializeField] private Collider doorTrigger;
         [SerializeField] private AudioSource audioSource;
 
-        public override void Interact()
+        public override void Interact(PlayerInteraction player)
         {
             if (audioSource == null) return;
 
