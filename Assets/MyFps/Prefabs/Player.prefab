@@ -326,7 +326,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5599363140406465415}
+  - {fileID: 5173370858730396756}
   m_Father: {fileID: 3017132366213604628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5442498118091602247
@@ -389,17 +389,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7868905613980762951, guid: b23ec45af386c7648b5cad318b544dc7, type: 3}
+      propertyPath: pistolShot
+      value: 
+      objectReference: {fileID: 3461678337028501463}
     - target: {fileID: 8830604912701337934, guid: b23ec45af386c7648b5cad318b544dc7, type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830604912701337934, guid: b23ec45af386c7648b5cad318b544dc7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b23ec45af386c7648b5cad318b544dc7, type: 3}
---- !u!4 &5599363140406465415 stripped
+--- !u!82 &3461678337028501463 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8903045991774246544, guid: b23ec45af386c7648b5cad318b544dc7, type: 3}
+  m_PrefabInstance: {fileID: 5442498118091602247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5173370858730396756 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 446784556608203456, guid: b23ec45af386c7648b5cad318b544dc7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 886120958215021843, guid: b23ec45af386c7648b5cad318b544dc7, type: 3}
   m_PrefabInstance: {fileID: 5442498118091602247}
   m_PrefabAsset: {fileID: 0}

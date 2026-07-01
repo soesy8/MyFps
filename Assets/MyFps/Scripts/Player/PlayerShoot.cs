@@ -9,7 +9,6 @@ namespace MyFps
         private Animator animator;
         public Transform firePoint;
         [SerializeField] private InputActionReference shootAction;
-        public AudioSource shootAudio;
 
         //무기 옵션
         [SerializeField] private float attackRange = 100f;
@@ -21,6 +20,7 @@ namespace MyFps
         //효과
         public GameObject hitImpactPrefab;
         public AudioSource pistolShot;
+        public ParticleSystem muzzleFlash;
 
         private string shootTrigger = "ShootTrigger";
         #endregion
@@ -100,7 +100,12 @@ namespace MyFps
 
             //명중하지 못해도 발사 연출은 나감
             animator.SetTrigger(shootTrigger);
-            shootAudio.Play();
+            pistolShot.Play();
+
+            if (muzzleFlash != null)
+            {
+                muzzleFlash.Play();
+            }
         }
 
         public void AddAmmo(int amount)
