@@ -25,17 +25,21 @@ namespace MyFps
 
         IEnumerator OpeningRoutine()
         {
+            // 페이드인
+            fader.FadeStart(faderDelay);
+
             // 플레이어 비활성화
             player.SetActive(false);
 
             // 텍스트 출력
             scenarioText.gameObject.SetActive(true);
+            scenarioText.text = "...Where am I";
+
+            yield return new WaitForSeconds(2f);
+
             scenarioText.text = "I need get out of here";
 
-            // 페이드인
-            fader.FadeStart(faderDelay);
-
-            yield return new WaitForSeconds(faderDelay + 0.2f);
+            yield return new WaitForSeconds(0.2f);
 
             // 플레이어 활성화
             player.SetActive(true);

@@ -16,6 +16,7 @@ namespace MyFps
 
         public AudioSource doorBang;
         public AudioSource jumpScare;
+        public AudioSource audio01;
 
         private string isOpen = "IsOpen";
         #endregion
@@ -51,6 +52,7 @@ namespace MyFps
             //-플레이 캐릭터 활성화(다시 플레이)
 
             player.SetActive(false);
+            audio01.Stop();
 
             twoDoorAnimator.SetBool(isOpen, true);
             doorBang.Play();

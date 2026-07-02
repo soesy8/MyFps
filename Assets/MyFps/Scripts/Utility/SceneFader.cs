@@ -44,7 +44,7 @@ namespace MyFps
             StartCoroutine(FadeOut(sceneName));
         }
 
-        //페이드 아우 하고 씬 빌드번호로 다음 씬 이동
+        //페이드 아웃 하고 씬 빌드번호로 다음 씬 이동
         public void FadeTo(int buildIndex)
         {
             StartCoroutine(FadeOut(buildIndex));

@@ -1,11 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace MyFps
 {
-    public class GameManager : MonoBehaviour
+    public class GameUIManager : MonoBehaviour
     {
         [SerializeField] private SceneFader fader;
         [SerializeField] private GameObject pauseUI;
@@ -22,7 +21,7 @@ namespace MyFps
         {
             if (pauseAction.action.WasPressedThisFrame())
             {
-                Debug.Log("P");
+                Debug.Log("Escape");
                 Toggle();
             }
         }
@@ -58,6 +57,20 @@ namespace MyFps
         public void Toggle()
         {
             Debug.Log("Toggle");
+            pauseUI.SetActive(!pauseUI.activeSelf);
+
+            if (pauseUI.activeSelf)     //pause창 open
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Time.timeScale = 0f;
+            }
+            else                        //pause창 close
+            {
+                Time.timeScale = 1f;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
         }
     }
 }

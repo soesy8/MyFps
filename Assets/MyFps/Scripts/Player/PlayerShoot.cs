@@ -15,11 +15,13 @@ namespace MyFps
         //무기 옵션
         [SerializeField] private float attackRange = 100f;
         [SerializeField] private float attackDamage = 5f;
-        [SerializeField] private int ammoSize = 7;      // 탄창 크기
+        private AmmoUI ammoUI;
+
+        /*[SerializeField] private int ammoSize = 7;      // 탄창 크기
         [SerializeField] private int currentAmmo = 7;   // 현재 탄창
         [SerializeField] private int reserveAmmo = 0;      // 예비 탄약
 
-        [SerializeField] private TextMeshProUGUI ammoUI;
+        [SerializeField] private TextMeshProUGUI ammoUI;*/
 
         //효과
         public GameObject hitImpactPrefab;
@@ -29,9 +31,9 @@ namespace MyFps
         private string shootTrigger = "ShootTrigger";
         #endregion
 
-        public int CurrentAmmo => currentAmmo;
+        /*public int CurrentAmmo => currentAmmo;
         public int AmmoSize => ammoSize;
-        public int ReserveAmmo => reserveAmmo;
+        public int ReserveAmmo => reserveAmmo;*/
 
 
         #region Unity Event Method
@@ -54,28 +56,25 @@ namespace MyFps
         {
             if(reloadAction.action.WasPressedThisFrame())
             {
-                if (currentAmmo < ammoSize && reserveAmmo > 0)
+                //PlayerStats.Instance.Reload();
+
+                if (PlayerStats.Instance.AmmoCount < PlayerStats.Instance.AmmoSize
+                    && PlayerStats.Instance.ReserveAmmo > 0)
                 {
-                    Debug.Log("Reload");
-                    int ammoNeeded = ammoSize - currentAmmo;
-                    int ammoToReload = Mathf.Min(ammoNeeded, reserveAmmo);
-                    currentAmmo += ammoToReload;
-                    reserveAmmo -= ammoToReload;
-                    UpdateAmmoUI();
+                    PlayerStats.Instance.Reload();
                 }
             }
 
             if (shootAction.action.WasPressedThisFrame())
             {
-                if (currentAmmo <= 0)
+                if (PlayerStats.Instance.AmmoCount <= 0)
                 {
                     Debug.Log("You need to reload");
                     return;
                 }
 
                 Shoot();
-                currentAmmo--;
-                UpdateAmmoUI();
+                PlayerStats.Instance.UseAmmo(1);
             }
         }
 
@@ -105,11 +104,12 @@ namespace MyFps
 
             if (isHit)
             {
-                Debug.Log($"{hit.transform.name} hit");
+                //Debug.Log($"{hit.transform.name} hit");
 
                 if (hitImpactPrefab != null)
                 {
                     GameObject effectGo = Instantiate(hitImpactPrefab, hit.point, Quaternion.identity);
+                    Destroy(effectGo, 0.5f);
                 }
 
                 IDamageable damageable = hit.transform.GetComponent<IDamageable>();
@@ -128,17 +128,6 @@ namespace MyFps
             {
                 muzzleFlash.Play();
             }
-        }
-
-        public void AddAmmo(int amount)
-        {
-            reserveAmmo += amount;
-            UpdateAmmoUI();
-        }
-
-        public void UpdateAmmoUI()
-        {
-            ammoUI.text = $"{currentAmmo} / {reserveAmmo}";
         }
         #endregion
     }

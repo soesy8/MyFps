@@ -8,7 +8,9 @@ namespace MyFps
 
         public override void Interact(PlayerInteraction player)
         {
-            player.PlayerShoot.AddAmmo(ammoAmount);
+            //player.PlayerShoot.AddAmmo(ammoAmount);
+
+            PlayerStats.Instance.AddAmmo(ammoAmount);
 
             Debug.Log($"Ammo +{ammoAmount}");
 

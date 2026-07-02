@@ -8,7 +8,13 @@ namespace MyFps
         [SerializeField] private Collider gunTrigger;
         [SerializeField] private GameObject guideArrow;
         [SerializeField] private GameObject playerPistol;
-        [SerializeField] private GameObject ammoUI;
+        [SerializeField] private GameObject ammoUIObject;
+        private AmmoUI ammoUI;
+
+        /*private void Start()
+        {
+            AmmoUI _ammoUI = FindFirstObjectByType<AmmoUI>();
+        }*/
 
         public override void Interact(PlayerInteraction player)
         {
@@ -16,13 +22,13 @@ namespace MyFps
 
             playerPistol.SetActive(true);
 
-            ammoUI.SetActive(true);
+            ammoUIObject.SetActive(true);
 
             PlayerShoot shoot = playerPistol.GetComponent<PlayerShoot>();
-
             player.SetPlayerShoot(shoot);
 
-            shoot.UpdateAmmoUI();
+            AmmoUI ammoUI = ammoUIObject.GetComponent<AmmoUI>();
+            ammoUI.UpdateAmmoUI();
 
             Destroy(gunTrigger.gameObject);
         }

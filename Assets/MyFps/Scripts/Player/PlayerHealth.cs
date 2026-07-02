@@ -14,7 +14,7 @@ namespace MyFps
 
         private bool isDeath = false;
 
-        [SerializeField] private GameManager gameManager;
+        [SerializeField] private GameUIManager gameUIManager;
         #endregion
 
 
@@ -28,7 +28,7 @@ namespace MyFps
         private void Awake()
         {
             //player = GetComponent<CharacterController>();
-            gameManager = FindFirstObjectByType<GameManager>();
+            gameUIManager = FindFirstObjectByType<GameUIManager>();
         }
         private void Start()
         {
@@ -57,7 +57,7 @@ namespace MyFps
             //죽음처리
             //게임오버
             //onDie?.Invoke();
-            gameManager.GameOver();
+            gameUIManager.GameOver();
             isDeath = true;
         }
         #endregion
