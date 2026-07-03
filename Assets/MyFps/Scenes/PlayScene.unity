@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7bc61ed6e4f7a0c4f8860db83e8c674e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: e2e9f7fc699a8e341a1964d1a1667a58, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -6881,6 +6881,10 @@ PrefabInstance:
       propertyPath: damageEffect
       value: 
       objectReference: {fileID: 87842816}
+    - target: {fileID: 747450105332708054, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
+      propertyPath: gameUIManager
+      value: 
+      objectReference: {fileID: 424065330}
     - target: {fileID: 2788947274870454784, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
       propertyPath: ammoUI
       value: 
@@ -7105,7 +7109,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.495283, g: 0.6915618, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -7498,9 +7502,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.89148086, g: 0.21323532, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 6
+  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 20
   m_SpotAngle: 165
   m_InnerSpotAngle: 159.24054
   m_CookieSize2D: {x: 10, y: 10}
@@ -9243,7 +9247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &548042814
 Transform:
   m_ObjectHideFlags: 0
@@ -10922,9 +10926,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.89148086, g: 0.21323532, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 6
+  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 20
   m_SpotAngle: 165
   m_InnerSpotAngle: 159.24054
   m_CookieSize2D: {x: 10, y: 10}
@@ -13429,6 +13433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DExitTrigger
   fader: {fileID: 1962025877}
+  jumpScare: {fileID: 1211117987}
 --- !u!65 &1150017431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14156,9 +14161,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.89148086, g: 0.21323532, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 6
+  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 20
   m_SpotAngle: 165
   m_InnerSpotAngle: 159.24054
   m_CookieSize2D: {x: 10, y: 10}
@@ -14967,9 +14972,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.89148086, g: 0.21323532, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 6
+  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 20
   m_SpotAngle: 165
   m_InnerSpotAngle: 159.24054
   m_CookieSize2D: {x: 10, y: 10}
@@ -15874,9 +15879,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.89148086, g: 0.21323532, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 6
+  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 20
   m_SpotAngle: 165
   m_InnerSpotAngle: 159.24054
   m_CookieSize2D: {x: 10, y: 10}
@@ -17660,6 +17665,8 @@ MonoBehaviour:
   player: {fileID: 1927062774}
   faderDelay: 2
   scenarioText: {fileID: 326650646}
+  line01: {fileID: 1884041930}
+  line02: {fileID: 629693824}
 --- !u!4 &1665280200
 Transform:
   m_ObjectHideFlags: 0
@@ -17996,9 +18003,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.89148086, g: 0.21323532, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 6
+  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 20
   m_SpotAngle: 165
   m_InnerSpotAngle: 159.24054
   m_CookieSize2D: {x: 10, y: 10}
@@ -21237,6 +21244,7 @@ MonoBehaviour:
   player: {fileID: 1927062774}
   sequenceText: {fileID: 326650646}
   guideArrow: {fileID: 178931188}
+  line03: {fileID: 524035972}
 --- !u!1 &2081226395
 GameObject:
   m_ObjectHideFlags: 0

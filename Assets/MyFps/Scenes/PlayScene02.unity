@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7bc61ed6e4f7a0c4f8860db83e8c674e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -325,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &87842813
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10442,11 +10442,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2204546928008950778, guid: 35e01bfd8b0693b478f99ead6abaff67, type: 3}
       propertyPath: isFadeIn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2204546928008950778, guid: 35e01bfd8b0693b478f99ead6abaff67, type: 3}
       propertyPath: delayTime
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5316572926388627840, guid: 35e01bfd8b0693b478f99ead6abaff67, type: 3}
       propertyPath: m_Name
@@ -10648,7 +10648,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665280198}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13cd8648649137d47b748a5c5dece4cc, type: 3}
   m_Name: 
@@ -10657,6 +10657,8 @@ MonoBehaviour:
   player: {fileID: 326070858}
   faderDelay: 0.3
   scenarioText: {fileID: 326650646}
+  line01: {fileID: 0}
+  line02: {fileID: 0}
 --- !u!1 &1676326443
 GameObject:
   m_ObjectHideFlags: 0

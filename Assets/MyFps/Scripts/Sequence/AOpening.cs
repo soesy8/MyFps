@@ -14,6 +14,8 @@ namespace MyFps
         [SerializeField] private float faderDelay = 1f;
         //[SerializeField] private GameObject scenarioText;
         [SerializeField] private TextMeshProUGUI scenarioText;
+        [SerializeField] private AudioSource line01;
+        [SerializeField] private AudioSource line02;
 
         private void Start()
         {
@@ -34,12 +36,14 @@ namespace MyFps
             // 텍스트 출력
             scenarioText.gameObject.SetActive(true);
             scenarioText.text = "...Where am I";
+            line01.Play();
 
             yield return new WaitForSeconds(2f);
 
             scenarioText.text = "I need get out of here";
+            line02.Play();
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(1.2f);
 
             // 플레이어 활성화
             player.SetActive(true);
