@@ -7502,7 +7502,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.97461593, b: 0.7783019, a: 1}
   m_Intensity: 10
   m_Range: 20
   m_SpotAngle: 165
@@ -10926,7 +10926,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.97461593, b: 0.7783019, a: 1}
   m_Intensity: 10
   m_Range: 20
   m_SpotAngle: 165
@@ -14161,7 +14161,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.97461593, b: 0.7783019, a: 1}
   m_Intensity: 10
   m_Range: 20
   m_SpotAngle: 165
@@ -14972,7 +14972,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.97461593, b: 0.7783019, a: 1}
   m_Intensity: 10
   m_Range: 20
   m_SpotAngle: 165
@@ -15879,7 +15879,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.97461593, b: 0.7783019, a: 1}
   m_Intensity: 10
   m_Range: 20
   m_SpotAngle: 165
@@ -17244,7 +17244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8055362377037220131, guid: f4a5e2a7ec3f2374ab86d3940a0c5c4c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18003,7 +18003,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 0.9691166, g: 0.7783019, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.97461593, b: 0.7783019, a: 1}
   m_Intensity: 10
   m_Range: 20
   m_SpotAngle: 165
