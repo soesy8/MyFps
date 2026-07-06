@@ -18,7 +18,10 @@ namespace MyFps
 
         public override void Interact(PlayerInteraction player)
         {
-            guideArrow.SetActive(false);
+            if (guideArrow != null)
+            {
+                guideArrow.SetActive(false);
+            }
 
             playerPistol.SetActive(true);
 
