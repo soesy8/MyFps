@@ -10,8 +10,11 @@ namespace MyFps
 
         public void Play()
         {
+            /*if (animator.gameObject.SetActive(false))
+            {
+                animator.gameObject.SetActive(true);
+            }*/
             animator.Play("DamageAnim", 0, 0f);
-
             PlayRandomSound();
         }
 

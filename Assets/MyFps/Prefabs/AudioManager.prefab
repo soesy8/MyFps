@@ -44,3 +44,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e41dea9a01de54dac64928796ca3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.AudioManager
+  sounds:
+  - name: MenuBgm
+    clip: {fileID: 8300000, guid: 7cb706d435894a8439e2a47d65577114, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
+    audioSource: {fileID: 0}
+  - name: MenuButton
+    clip: {fileID: 8300000, guid: 013cad35a7c524140bf3d616636b2b49, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    audioSource: {fileID: 0}
+  - name: Bgm01
+    clip: {fileID: 8300000, guid: 123f5adf0a5a6294bab46a8d2796f8a0, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    audioSource: {fileID: 0}
+  - name: Bgm02
+    clip: {fileID: 8300000, guid: ec1570b502a47f54085e9e9828631791, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    audioSource: {fileID: 0}
+  bgmSound: 

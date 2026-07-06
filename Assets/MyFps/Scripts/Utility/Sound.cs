@@ -16,6 +16,8 @@ namespace MyFps
         public bool loop;       //반복 재생 여부
         public bool playOnAwake;//처음 플레이 여부
 
+        //public 이면서 외부에서는 볼 수 없는 속성
+        [HideInInspector]
         public AudioSource audioSource;     //플레이시킬 오디오 소스
     }
 }
