@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4653665856037719881}
   - component: {fileID: 6920109121847014564}
   m_Layer: 0
-  m_Name: InteractableKey
+  m_Name: DoorKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

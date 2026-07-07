@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 166928647223196016}
   - component: {fileID: 695440078174313793}
   - component: {fileID: 747450105332708054}
+  - component: {fileID: 7503459230972476214}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -150,7 +151,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.PlayerHealth
   maxHp: 20
   damageEffect: {fileID: 0}
-  gameManager: {fileID: 0}
+  gameUIManager: {fileID: 0}
+--- !u!114 &7503459230972476214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105649807565993012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2782de97a879e474da3a945a1d81b9be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
 --- !u!1 &204815929251589630
 GameObject:
   m_ObjectHideFlags: 0

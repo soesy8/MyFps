@@ -10,7 +10,7 @@ namespace MyFps
 
         [SerializeField] private string interactionText = "InteractionText";
 
-        public string InteractionText => interactionText;
+        public virtual string InteractionText => interactionText;
 
         public bool InteractByTrigger => interactByTrigger;
 
