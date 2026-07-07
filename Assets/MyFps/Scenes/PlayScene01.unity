@@ -13538,6 +13538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e60ae3f5f145cd4aaca5d17f8ac1cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.AmmoBox
+  interactByTrigger: 0
   interactionText: Get Ammo
   ammoAmount: 7
 --- !u!4 &1524640441
@@ -13929,6 +13930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e60ae3f5f145cd4aaca5d17f8ac1cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.AmmoBox
+  interactByTrigger: 0
   interactionText: Get Ammo
   ammoAmount: 7
 --- !u!4 &1557808905
@@ -15787,6 +15789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e60ae3f5f145cd4aaca5d17f8ac1cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.AmmoBox
+  interactByTrigger: 0
   interactionText: Get Ammo
   ammoAmount: 7
 --- !u!4 &1961541508
@@ -17941,6 +17944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceae104316a2f564cbad0d4b3c9571b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.DoorCellOpen
+  interactByTrigger: 0
   interactionText: Open the Door
   animator: {fileID: 919132149195196578}
   doorTrigger: {fileID: 1957459948}
@@ -20236,6 +20240,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5799078401545190441, guid: ad1fb86bb7f08004ab4c3623fc10a543, type: 3}
+      propertyPath: sounds.Array.data[2].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799078401545190441, guid: ad1fb86bb7f08004ab4c3623fc10a543, type: 3}
+      propertyPath: sounds.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8803835275762457161, guid: ad1fb86bb7f08004ab4c3623fc10a543, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13774
@@ -21016,6 +21028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e60ae3f5f145cd4aaca5d17f8ac1cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.AmmoBox
+  interactByTrigger: 0
   interactionText: Get Ammo
   ammoAmount: 7
 --- !u!65 &9035132555816970001

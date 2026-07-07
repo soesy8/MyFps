@@ -21,7 +21,7 @@ namespace MyFps
         {
             if (pauseAction.action.WasPressedThisFrame())
             {
-                Debug.Log("Escape");
+                //Debug.Log("Escape");
                 Toggle();
             }
         }
@@ -39,7 +39,7 @@ namespace MyFps
         //재시작 - 씬로드
         public void Retry()
         {
-            Debug.Log("ReTry");
+            //Debug.Log("ReTry");
             Time.timeScale = 1.0f;
             fader.FadeTo("PlayScene");
         }
@@ -48,7 +48,7 @@ namespace MyFps
         public void GoToMenu()
         {
             //페이더 효과만 구현
-            Debug.Log("Go To Menu");
+           // Debug.Log("Go To Menu");
             Time.timeScale = 1.0f;
             fader.FadeTo("MainMenu");
         }
@@ -56,7 +56,7 @@ namespace MyFps
         //일시정지 pause - 토글기능, timescale = 0, 
         public void Toggle()
         {
-            Debug.Log("Toggle");
+            //Debug.Log("Toggle");
             pauseUI.SetActive(!pauseUI.activeSelf);
 
             if (pauseUI.activeSelf)     //pause창 open

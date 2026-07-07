@@ -29,7 +29,7 @@ namespace MyFps
             {
                 Interactable interactable = hit.collider.GetComponentInParent<Interactable>();
 
-                if (interactable != null)
+                if (interactable != null && !interactable.InteractByTrigger)
                 {
                     actionUI.SetActive(true);
                     extraCross.SetActive(true);

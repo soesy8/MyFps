@@ -95,10 +95,14 @@ namespace MyFps
             {
                 return;
             }
-            
-            //현재 플레이되는 배경음 정지
-            Stop(bgmSound);
 
+            if (!string.IsNullOrEmpty(bgmSound))
+            {
+                Stop(bgmSound);
+            }
+
+            //현재 플레이되는 배경음 정지
+            //Stop(bgmSound);
 
             //재생시킬 BGM 찾기
             Sound sound = null;
