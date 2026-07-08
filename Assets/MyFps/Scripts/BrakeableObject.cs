@@ -13,6 +13,8 @@ namespace MyFps
 
         [SerializeField] private GameObject brokenPrefab;       //부서질 오브젝트 프리펩
 
+        [SerializeField] private bool isBrakeable;          //부서지는 오브젝트인지 여부
+
         private void Start()
         {
             currentHealth = maxHealth;
@@ -21,6 +23,7 @@ namespace MyFps
 
         public void TakeDamage(float damage)
         {
+            if (!isBrakeable) return;
             currentHealth -= damage;
             //Debug.Log($"{gameObject.name} currentHealth: {currentHealth}");
 

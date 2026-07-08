@@ -16,23 +16,27 @@ namespace MyFps
         private Coroutine messageCoroutine;
 
         [SerializeField] private GameObject door;
+        private Animator animator;
+
+        private void Awake()
+        {
+            animator = door.GetComponent<Animator>();
+        }
 
         public override void Interact(PlayerInteraction player)
         {
-            //if (leftEye.activeSelf && rightEye.activeSelf) return;
+            if (isComplete)
+            {
+                OpenDoor();
+                return;
+            }
 
             bool hasLeft = PlayerInventory.Instance.HasItem(ItemType.EyePuzzleL);
             bool hasRight = PlayerInventory.Instance.HasItem(ItemType.EyePuzzleR);
 
             if (!hasLeft && !hasRight)
             {
-                if (messageCoroutine != null)
-                {
-                    StopCoroutine(messageCoroutine);
-                }
-
-                messageCoroutine = StartCoroutine(NeedPuzzleRoutine());
-
+                NeedPuzzle();
                 return;
             }
 
@@ -47,19 +51,12 @@ namespace MyFps
                 PlayerInventory.Instance.RemoveItem(ItemType.EyePuzzleR);
                 rightEye.SetActive(true);
             }
-            /*if (!PlayerInventory.Instance.HasItem(ItemType.EyePuzzleL) && !PlayerInventory.Instance.HasItem(ItemType.EyePuzzleR))
+
+            if (leftEye.activeSelf && rightEye.activeSelf)
             {
-                Debug.Log("Have no Puzzle");
-
-                if (messageCoroutine != null)
-                {
-                    StopCoroutine(messageCoroutine);
-                }
-
-                messageCoroutine = StartCoroutine(NeedPuzzleRoutine());
-
-                return;
-            }*/
+                isComplete = true;
+                OpenDoor();
+            }
         }
 
         IEnumerator NeedPuzzleRoutine()
@@ -69,6 +66,21 @@ namespace MyFps
             yield return new WaitForSeconds(2f);
 
             sequenceText.text = "";
+        }
+
+        private void NeedPuzzle()
+        {
+            if (messageCoroutine != null)
+            {
+                StopCoroutine(messageCoroutine);
+            }
+
+            messageCoroutine = StartCoroutine(NeedPuzzleRoutine());
+        }
+
+        private void OpenDoor()
+        {
+            animator.SetBool("IsOpen", true);
         }
     }
 }
