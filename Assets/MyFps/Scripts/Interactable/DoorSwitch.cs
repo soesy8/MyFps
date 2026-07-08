@@ -11,6 +11,7 @@ namespace MyFps
     {
         [SerializeField] private Door door;
 
+        [SerializeField] private Renderer doorSwitch;
         private Color originColor;
 
         /*private void Awake()
@@ -27,9 +28,21 @@ namespace MyFps
             }
         }
 
+        private void OnEnable()
+        {
+            door.OnDoorOpened += HandleDoorOpened;
+            door.OnDoorClosed += HandleDoorClosed;
+        }
+
+        private void OnDisable()
+        {
+            door.OnDoorOpened -= HandleDoorOpened;
+            door.OnDoorClosed -= HandleDoorClosed;
+        }
+
         private void Start()
         {
-            originColor = Color.white;
+            originColor = doorSwitch.material.color;
         }
 
         public override void Interact(PlayerInteraction player)
@@ -39,13 +52,14 @@ namespace MyFps
             door.DoorToggle();
         }
 
-        /*public string DoorText()
+        private void HandleDoorOpened()
         {
-            if (door.IsOpen) return "Close Door";
+            doorSwitch.material.color = Color.red;
+        }
 
-            //if (PlayerInventory.Instance.HasItem(door.RequireItem)) return "Locked Door";
-
-            return "Open Door";
-        }*/
+        private void HandleDoorClosed()
+        {
+            doorSwitch.material.color = originColor;
+        }
     }
 }

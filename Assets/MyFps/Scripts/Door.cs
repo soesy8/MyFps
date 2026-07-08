@@ -33,7 +33,7 @@ namespace MyFps
 
             if (!PlayerInventory.Instance.HasItem(requireItem))
             {
-                Debug.Log("Need Key");
+                //Debug.Log("Need Key");
 
                 if (messageCoroutine != null)
                 {

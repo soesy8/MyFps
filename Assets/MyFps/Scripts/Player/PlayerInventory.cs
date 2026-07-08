@@ -15,7 +15,7 @@ namespace MyFps
     {
         private HashSet<ItemType> items = new();
 
-        public event Action OnInventoryChanged;
+        //public event Action OnInventoryChanged;
 
         public void AddItem(ItemType item)
         {
@@ -23,7 +23,7 @@ namespace MyFps
             {
                 Debug.Log($"{item} 획득");
 
-                OnInventoryChanged?.Invoke();
+                //OnInventoryChanged?.Invoke();
             }
         }
 
@@ -33,7 +33,7 @@ namespace MyFps
             {
                 Debug.Log($"{item} 사용");
 
-                OnInventoryChanged?.Invoke();
+                //OnInventoryChanged?.Invoke();
             }
         }
 
