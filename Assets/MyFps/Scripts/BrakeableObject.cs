@@ -12,6 +12,7 @@ namespace MyFps
         [SerializeField] private GameObject dropItem;       //부서진 오브젝트에서 나올 아이템
 
         [SerializeField] private GameObject brokenPrefab;       //부서질 오브젝트 프리펩
+        //[SerializeField] private Audio breakSound;        //부서지는 사운드
 
         [SerializeField] private bool isBrakeable;          //부서지는 오브젝트인지 여부
 
@@ -56,6 +57,8 @@ namespace MyFps
                 Debug.Log("Drop Key");
                 GameObject item = Instantiate(dropItem, transform.position + new Vector3(0f,1f,0f), transform.rotation);
             }
+
+            AudioManager.Instance.Play("PotSmash");
             
             Destroy(gameObject);
             Destroy(broken, 2f);
