@@ -15,19 +15,21 @@ namespace MyFps
         [SerializeField] private TextMeshProUGUI sequenceText;
         private Coroutine messageCoroutine;
 
-        [SerializeField] private GameObject door;
-        private Animator animator;
+        //[SerializeField] private GameObject door;
+        //private Animator animator;
 
-        private void Awake()
+        [SerializeField] private GameObject puzzleKey;
+        //private ItemType dropKey;
+
+        /*private void Awake()
         {
             animator = door.GetComponent<Animator>();
-        }
+        }*/
 
         public override void Interact(PlayerInteraction player)
         {
             if (isComplete)
             {
-                OpenDoor();
                 return;
             }
 
@@ -55,7 +57,7 @@ namespace MyFps
             if (leftEye.activeSelf && rightEye.activeSelf)
             {
                 isComplete = true;
-                OpenDoor();
+                DropItem();
             }
         }
 
@@ -78,9 +80,13 @@ namespace MyFps
             messageCoroutine = StartCoroutine(NeedPuzzleRoutine());
         }
 
-        private void OpenDoor()
+        private void DropItem()
         {
-            animator.SetBool("IsOpen", true);
+            Debug.Log("PuzzleKey Drop");
+
+            puzzleKey.SetActive(true);
+
+            //animator.SetBool("IsOpen", true);
         }
     }
 }

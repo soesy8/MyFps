@@ -8,7 +8,8 @@ namespace MyFps
     {
         DoorKey,
         EyePuzzleR,
-        EyePuzzleL
+        EyePuzzleL,
+        PuzzleKey
     }
 
     public class PlayerInventory : PersistentSingleton<PlayerInventory>

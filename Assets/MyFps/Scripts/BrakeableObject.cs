@@ -55,7 +55,8 @@ namespace MyFps
             if (dropItem != null)
             {
                 Debug.Log("Drop Key");
-                GameObject item = Instantiate(dropItem, transform.position + new Vector3(0f,1f,0f), transform.rotation);
+                //GameObject item = Instantiate(dropItem, transform.position + new Vector3(0f,1f,0f), transform.rotation);
+                dropItem.SetActive(true);
             }
 
             AudioManager.Instance.Play("PotSmash");

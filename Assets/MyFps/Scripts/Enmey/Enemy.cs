@@ -7,33 +7,35 @@ namespace MyFps
     /// </summary>
     public enum EnemyState
     {
-        R_Idle = 0,
-        R_Walk,
-        R_Attack,
-        R_Death
+        Idle = 0,
+        Patrol,
+        Chase,
+        Attack,
+        Return,
+        Death
     }
 
     /// <summary>
     /// 적을 관리하는 클래스
     /// IDamageable 상속 받는다
     /// </summary>
-    public class Enemy : MonoBehaviour, IDamageable
+    public abstract class Enemy : MonoBehaviour, IDamageable
     {
         #region Variables
         //참조
-        private Animator animator;
-        private Transform thePlayer;
+        protected Animator animator;
+        protected Transform thePlayer;
 
         //로봇의 상태 (enum)
-        [SerializeField] private RobotState currentState;    //현재 상태
-        private RobotState beforeState;     //현재 상태의 바로 이전 상태
+        [SerializeField] protected EnemyState currentState;    //현재 상태
+        protected EnemyState beforeState;     //현재 상태의 바로 이전 상태
 
         //이동
-        [SerializeField] private float moveSpeed = 2f;
+        [SerializeField] protected float moveSpeed = 2f;
 
         //공격
-        [SerializeField] private float attakRange = 1.5f;   //공격 범위
-        [SerializeField] private float attackDamage = 5f;   //공격력
+        [SerializeField] protected float attackRange = 1.5f;   //공격 범위
+        [SerializeField] protected float attackDamage = 5f;   //공격력
         /*[SerializeField] private float attackTimer = 2f;
         private float countdown = 0f;*/
 
@@ -47,25 +49,21 @@ namespace MyFps
         #endregion
 
         #region Unity Event Method
-        private void Awake()
+        protected void Awake()
         {
             //참조
             animator = GetComponent<Animator>();
-            PlayerMove playerMove = FindFirstObjectByType<PlayerMove>();
-            if (playerMove != null)
-            {
-                thePlayer = FindFirstObjectByType<PlayerMove>().transform;
-            }
+            FindPlayer();
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             //초기화
-            ChangeState(RobotState.R_Idle);
+            ChangeState(EnemyState.Idle);
             currentHealth = maxHealth;
         }
 
-        private void Update()
+        protected void Update()
         {
             //죽음 체크
             if (isDeath)
@@ -76,11 +74,7 @@ namespace MyFps
             //타겟 체크
             if (thePlayer == null)
             {
-                PlayerMove playerMove = FindFirstObjectByType<PlayerMove>();
-                if (playerMove != null)
-                {
-                    thePlayer = FindFirstObjectByType<PlayerMove>().transform;
-                }
+                FindPlayer();
                 return;
             }
 
@@ -143,13 +137,28 @@ namespace MyFps
         #endregion
 
         #region Custom Method
-        protected virtual void UpdateAI()
-        {
+        protected abstract void UpdateAI();
 
+        protected void FindPlayer()
+        {
+            PlayerMove playerMove = FindFirstObjectByType<PlayerMove>();
+            if (playerMove != null)
+            {
+                thePlayer = FindFirstObjectByType<PlayerMove>().transform;
+            }
+        }
+
+        protected void MoveTo(Vector3 targetPos)
+        {
+            Vector3 dir = targetPos - transform.position;
+
+            transform.Translate(dir.normalized * moveSpeed * Time.deltaTime, Space.World);
+
+            transform.LookAt(targetPos);
         }
 
         //상태 변경 - 매개변수로 들어온 상태로 변경한다
-        public void ChangeState(RobotState newState)
+        public void ChangeState(EnemyState newState)
         {
             //상태 변경전에 현재상태를 이전상태에 저장
             beforeState = currentState;
@@ -164,7 +173,7 @@ namespace MyFps
         }
 
         //공격
-        void Attack()
+        protected void Attack()
         {
             if (thePlayer == null)
                 return;
@@ -197,14 +206,14 @@ namespace MyFps
         }
 
         //죽기
-        void Die()
+        protected virtual void Die()
         {
             isDeath = true;
 
             //죽음 처리 (VFX, SFX, 보상처리)
 
             //상태 변경
-            ChangeState(RobotState.R_Death);
+            ChangeState(EnemyState.Death);
         }
         #endregion
     }
