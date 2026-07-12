@@ -41,7 +41,7 @@ namespace MyFps
         {
             //Debug.Log("ReTry");
             Time.timeScale = 1.0f;
-            fader.FadeTo("PlayScene");
+            fader.FadeTo("PlayScene01");
         }
 
         //메인메뉴 - 씬페이더로 어두워지기까지만 구현

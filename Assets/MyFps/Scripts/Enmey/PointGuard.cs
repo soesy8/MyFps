@@ -8,13 +8,16 @@ namespace MyFps
 
         [SerializeField] private float detectRange = 7f;
         [SerializeField] private float chaseRange = 10f;
+        //[SerializeField] private float attackCooldown = 1f;
+
+        //private float attackTimer;
 
         protected override void Start()
         {
             base.Start();
+
             originPosition = transform.position;
         }
-
 
         protected override void UpdateAI()
         {
@@ -23,15 +26,19 @@ namespace MyFps
                 case EnemyState.Idle:
                     EnemyIdle();
                     break;
+
                 case EnemyState.Chase:
                     EnemyChase();
                     break;
+
                 case EnemyState.Attack:
                     EnemyAttack();
                     break;
+
                 case EnemyState.Return:
                     EnemyReturn();
                     break;
+
                 case EnemyState.Death:
                     break;
             }
@@ -39,7 +46,8 @@ namespace MyFps
 
         private void EnemyIdle()
         {
-            float distance = Vector3.Distance(transform.position, thePlayer.position);
+            float distance =
+                Vector3.Distance(transform.position, thePlayer.position);
 
             if (distance <= detectRange)
             {
@@ -49,7 +57,8 @@ namespace MyFps
 
         private void EnemyChase()
         {
-            float distance =Vector3.Distance(transform.position, thePlayer.position);
+            float distance =
+                Vector3.Distance(transform.position, thePlayer.position);
 
             MoveTo(thePlayer.position);
 
@@ -66,14 +75,31 @@ namespace MyFps
 
         private void EnemyAttack()
         {
+            transform.LookAt(thePlayer);
 
+            attackTimer += Time.deltaTime;
+
+            if (attackTimer >= attackCooldown)
+            {
+                attackTimer = 0f;
+
+                animator.SetTrigger(FireTriggerHash);
+            }
+
+            float distance = Vector3.Distance(transform.position, thePlayer.position);
+
+            if (distance > attackRange)
+            {
+                ChangeState(EnemyState.Chase);
+            }
         }
 
         private void EnemyReturn()
         {
             MoveTo(originPosition);
 
-            float distance =Vector3.Distance(transform.position, originPosition);
+            float distance =
+                Vector3.Distance(transform.position, originPosition);
 
             if (distance < 0.2f)
             {
