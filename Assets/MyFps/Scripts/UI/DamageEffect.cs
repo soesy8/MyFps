@@ -14,6 +14,7 @@ namespace MyFps
             {
                 animator.gameObject.SetActive(true);
             }*/
+            Debug.Log("DamagedAnim Called");
             animator.Play("DamageAnim", 0, 0f);
             PlayRandomSound();
         }
