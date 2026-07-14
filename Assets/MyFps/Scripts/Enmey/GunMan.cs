@@ -20,6 +20,7 @@ namespace MyFps
     public class GunMan : MonoBehaviour, IDamageable
     {
         #region Variables
+        //참조
         private Animator animator;
         private NavMeshAgent agent;
         private Transform thePlayer;
