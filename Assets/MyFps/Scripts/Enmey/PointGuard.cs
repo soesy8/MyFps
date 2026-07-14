@@ -23,23 +23,23 @@ namespace MyFps
         {
             switch (currentState)
             {
-                case EnemyState.Idle:
+                case _EnemyState.Idle:
                     EnemyIdle();
                     break;
 
-                case EnemyState.Chase:
+                case _EnemyState.Chase:
                     EnemyChase();
                     break;
 
-                case EnemyState.Attack:
+                case _EnemyState.Attack:
                     EnemyAttack();
                     break;
 
-                case EnemyState.Return:
+                case _EnemyState.Return:
                     EnemyReturn();
                     break;
 
-                case EnemyState.Death:
+                case _EnemyState.Death:
                     break;
             }
         }
@@ -51,7 +51,7 @@ namespace MyFps
 
             if (distance <= detectRange)
             {
-                ChangeState(EnemyState.Chase);
+                ChangeState(_EnemyState.Chase);
             }
         }
 
@@ -64,12 +64,12 @@ namespace MyFps
 
             if (distance <= attackRange)
             {
-                ChangeState(EnemyState.Attack);
+                ChangeState(_EnemyState.Attack);
             }
 
             if (distance > chaseRange)
             {
-                ChangeState(EnemyState.Return);
+                ChangeState(_EnemyState.Return);
             }
         }
 
@@ -90,7 +90,7 @@ namespace MyFps
 
             if (distance > attackRange)
             {
-                ChangeState(EnemyState.Chase);
+                ChangeState(_EnemyState.Chase);
             }
         }
 
@@ -103,7 +103,7 @@ namespace MyFps
 
             if (distance < 0.2f)
             {
-                ChangeState(EnemyState.Idle);
+                ChangeState(_EnemyState.Idle);
             }
         }
     }

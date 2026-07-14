@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MyFps
 {
-    public enum EnemyState
+    public enum _EnemyState
     {
         Idle = 0,
         Patrol,
@@ -19,8 +19,8 @@ namespace MyFps
         protected Animator animator;
         protected Transform thePlayer;
 
-        [SerializeField] protected EnemyState currentState;
-        protected EnemyState beforeState;
+        [SerializeField] protected _EnemyState currentState;
+        protected _EnemyState beforeState;
 
         [SerializeField] protected float moveSpeed = 2f;
 
@@ -55,7 +55,7 @@ namespace MyFps
 
         protected virtual void Start()
         {
-            ChangeState(EnemyState.Idle);
+            ChangeState(_EnemyState.Idle);
             currentHealth = maxHealth;
         }
 
@@ -100,7 +100,7 @@ namespace MyFps
             transform.LookAt(targetPos);
         }
 
-        public void ChangeState(EnemyState newState)
+        public void ChangeState(_EnemyState newState)
         {
             if (currentState == newState)
                 return;
@@ -110,27 +110,27 @@ namespace MyFps
 
             switch (newState)
             {
-                case EnemyState.Idle:
+                case _EnemyState.Idle:
                     animator.SetInteger(MoveStateHash, 0);
                     break;
 
-                case EnemyState.Patrol:
+                case _EnemyState.Patrol:
                     animator.SetInteger(MoveStateHash, 1);
                     break;
 
-                case EnemyState.Chase:
+                case _EnemyState.Chase:
                     animator.SetInteger(MoveStateHash, 1);
                     break;
 
-                case EnemyState.Return:
+                case _EnemyState.Return:
                     animator.SetInteger(MoveStateHash, 1);
                     break;
 
-                case EnemyState.Attack:
+                case _EnemyState.Attack:
                     animator.SetTrigger(FireTriggerHash);
                     break;
 
-                case EnemyState.Death:
+                case _EnemyState.Death:
                     animator.SetTrigger(DeathTriggerHash);
                     break;
             }
@@ -165,7 +165,7 @@ namespace MyFps
         {
             isDeath = true;
 
-            ChangeState(EnemyState.Death);
+            ChangeState(_EnemyState.Death);
         }
 
         #endregion
