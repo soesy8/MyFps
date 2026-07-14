@@ -87,6 +87,9 @@ namespace MyFps
             //죽음 체크
             if (isDeath) return;
 
+            //이동 애니메이션
+            animator.SetFloat(MoveSpeed, agent.velocity.magnitude);
+
             //상태 구현
             switch (currentState)
             {
@@ -109,6 +112,8 @@ namespace MyFps
                     //도착판정
                     if(agent.remainingDistance < 0.1f)
                     {
+                        //animator.SetFloat(MoveSpeed, speed);
+                        
                         //인덱스 증가
                         if (isPatrol)
                         {
@@ -165,7 +170,29 @@ namespace MyFps
 
         public void TakeDamage(float damage)
         {
-            throw new System.NotImplementedException();
+            currentHealth -= damage;
+            Debug.Log($"{gameObject.name} currentHealth: {currentHealth}");
+
+            //데미지 효과 처리(VFX, SFX)
+
+            //죽음 체크
+            if (currentHealth <= 0f && isDeath == false)
+            {
+                Die();
+            }
+        }
+
+        void Die()
+        {
+            isDeath = true;
+
+            //죽음 처리 (VFX, SFX, 보상처리)
+            animator.SetBool(IsDeath, true);
+            agent.isStopped = true;     //이동 중지
+            agent.enabled = false;      //Agent 비활성화
+
+            //상태 변경
+            ChangeState(EnemyState.E_Death);
         }
         #endregion
     }
