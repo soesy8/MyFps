@@ -58,9 +58,14 @@ namespace MyFps
         //Custom Method
         private void HideInteractionUI()
         {
-            actionText.text = "";
-            actionUI.SetActive(false);
-            extraCross.SetActive(false);
+            if (actionText != null)
+                actionText.text = "";
+
+            if (actionUI != null)
+                actionUI.SetActive(false);
+
+            if (extraCross != null)
+                extraCross.SetActive(false);
         }
 
         public void SetPlayerShoot(PlayerShoot shoot)

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.GetKey
   interactByTrigger: 1
   interactionText: Get Key
+  dropKey: 0
 --- !u!65 &4653665856037719881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68,8 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2, z: 5.654686}
-  m_Center: {x: 0, y: 0, z: 0.32734358}
+  m_Size: {x: 8.323573, y: 4.1822014, z: 10.096985}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6920109121847014564
 MonoBehaviour:
   m_ObjectHideFlags: 0

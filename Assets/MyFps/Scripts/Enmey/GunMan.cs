@@ -1,3 +1,5 @@
+using Newtonsoft.Json.Serialization;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -47,11 +49,12 @@ namespace MyFps
 
         //추격 상태
         [SerializeField] private float detectDistance = 10f;        //적이 디텍팅 거리에 들어오면 추격
+        [SerializeField] private bool isDetecting = false;
 
         //공격 상태
         [SerializeField] private float attackRange = 5f;            //적이 사거리 안에 들어오면 추격을 멈추고 공격
         [SerializeField] private float attackTimer = 2f;            //총 발사 간격
-        private float attackCountdown = 0f;
+        //private float attackCountdown = 0f;
         [SerializeField] private float attackDamage = 5f;           //공격 대미지
 
         //애니메이션 매개변수
@@ -59,6 +62,20 @@ namespace MyFps
         private const string IsDeath = "IsDeath";
         private const string FireTrigger = "FireTrigger";
         #endregion
+
+        //property
+        public bool IsDetecting
+        {
+            get { return isDetecting; }
+            set
+            {
+                isDetecting = value; 
+                if (value == false)
+                {
+                    ChangeState(EnemyState.E_Walk);
+                }
+            }
+        }
 
         #region Unity Event Method
         private void Awake()
@@ -76,16 +93,35 @@ namespace MyFps
             currentHealth = maxHealth;
             startPosition = this.transform.position;
 
+            isDetecting = false;
+
             ChangeState(EnemyState.E_Idle);
             
             isPatrol = wayPoints.Length >= 2 ? true : false;
             wayPointIndex = 1;
+
+            //ChangeState(EnemyState.E_Walk);
         }
 
         private void Update()
         {
             //죽음 체크
-            if (isDeath) return;
+            if (isDeath || thePlayer == null) return;
+
+            //플레이어 디텍팅
+            float targetDis = Vector3.Distance(transform.position, thePlayer.position);
+
+            Chase(targetDis);
+
+            /*if (targetDis <= attackRange)
+            {
+                //공격
+                ChangeState(EnemyState.E_Attack);
+            }
+            else if(targetDis <= detectDistance)
+            {
+                ChangeState(EnemyState.E_Chase);
+            }*/
 
             //이동 애니메이션
             animator.SetFloat(MoveSpeed, agent.velocity.magnitude);
@@ -128,9 +164,29 @@ namespace MyFps
                     break;
 
                 case EnemyState.E_Chase:
+                    //agent 목표 설정
+                    agent.SetDestination(thePlayer.position);
+                    
+                    //플레이어가 인식범위에서 벗어나면
+                    if(targetDis > detectDistance)
+                    {
+                        ChangeState(EnemyState.E_Walk);
+                    }
                     break;
 
                 case EnemyState.E_Attack:
+                    countdown += Time.deltaTime;
+                    if(countdown >= attackTimer)
+                    {
+                        //공격
+                        Shoot();
+
+                        //초기화
+                        countdown = 0f;
+                    }
+
+                    //플레이어 바라보기
+                    transform.LookAt(thePlayer.position);
                     break;
 
                 case EnemyState.E_Death:
@@ -139,23 +195,38 @@ namespace MyFps
 
         }
 
+        //디텍팅 거리, 공격 거리 기즈모 그리기
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, detectDistance);
+
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+        }
         #endregion
 
         #region Custom Method
         public void ChangeState(EnemyState newState)
         {
+            //현재 상태 체크
+            if (currentState == newState) return;
+
             //상태 변경전에 현재상태를 이전상태에 저장
             beforeState = currentState;
 
             //새로운 상태로 변경
             currentState = newState;
 
+            //agent 초기화
+            agent.ResetPath();
+
+            countdown = 0f;
+
             //새로운 상태변경에 따른 처리사항 구현
             switch (currentState)
             {
                 case EnemyState.E_Idle:
-                    //타이머 초기화
-                    countdown = 0f;
                     break;
 
                 case EnemyState.E_Walk:
@@ -164,14 +235,55 @@ namespace MyFps
                     {
                         agent.SetDestination(wayPoints[wayPointIndex].position);
                     }
+                    else
+                    {
+                        agent.SetDestination(startPosition);
+                    }
                     break;
+            }
+
+            //조준
+            if (newState == EnemyState.E_Chase || newState == EnemyState.E_Attack)
+            {
+                animator.SetLayerWeight(1, 1f);
+            }
+            else
+            {
+                animator.SetLayerWeight(1, 0f);
+            }
+
+        }
+
+        //추격
+        private void Chase(float targetDis)
+        {
+            if (targetDis <= attackRange && IsDetecting)
+            {
+                //공격
+                ChangeState(EnemyState.E_Attack);
+            }
+            else if (targetDis <= detectDistance && IsDetecting)
+            {
+                ChangeState(EnemyState.E_Chase);
+            }
+        }
+
+        //공격
+        void Shoot()
+        {
+            //애니메이션
+            animator.SetTrigger(FireTrigger);
+            
+            IDamageable damageable = thePlayer.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(attackDamage);
             }
         }
 
         public void TakeDamage(float damage)
         {
             currentHealth -= damage;
-            Debug.Log($"{gameObject.name} currentHealth: {currentHealth}");
 
             //데미지 효과 처리(VFX, SFX)
 
@@ -186,13 +298,16 @@ namespace MyFps
         {
             isDeath = true;
 
+            //상태 변경
+            ChangeState(EnemyState.E_Death);
+
             //죽음 처리 (VFX, SFX, 보상처리)
             animator.SetBool(IsDeath, true);
             agent.isStopped = true;     //이동 중지
             agent.enabled = false;      //Agent 비활성화
 
-            //상태 변경
-            ChangeState(EnemyState.E_Death);
+            //제거
+            //Destroy(gameObject, 3f);
         }
         #endregion
     }

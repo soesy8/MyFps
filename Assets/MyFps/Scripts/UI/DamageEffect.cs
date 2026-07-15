@@ -17,6 +17,7 @@ namespace MyFps
             Debug.Log("DamagedAnim Called");
             animator.Play("DamageAnim", 0, 0f);
             PlayRandomSound();
+            CinemachineShake.Instance.Shake(1f, 1f, 1f);
         }
 
         private void PlayRandomSound()

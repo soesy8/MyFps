@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2630665952993145224}
   - component: {fileID: 7116916558081240983}
+  - component: {fileID: 4980890155404136653}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,3 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e537b24fd00da4fb01cd3309e04489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.PlayerStats
+--- !u!114 &4980890155404136653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524363288040086507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2782de97a879e474da3a945a1d81b9be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyFps.PlayerInventory
