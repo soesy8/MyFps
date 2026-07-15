@@ -33,18 +33,18 @@ namespace MyFps
         #endregion
 
         #region Custom Method
-        public void Shake(float amplitude, float frequency, float duration)
+        public void Shake()
         {
             StopAllCoroutines();
-            StartCoroutine(ShakeCoroutine(amplitude, frequency, duration));
+            StartCoroutine(ShakeCoroutine());
         }
 
-        private IEnumerator ShakeCoroutine( float amplitude, float frequency, float duration)
+        private IEnumerator ShakeCoroutine()
         {
             multiChannelPerlin.AmplitudeGain = amplitude;
             multiChannelPerlin.FrequencyGain = frequency;
 
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(shakeTimer);
 
             multiChannelPerlin.AmplitudeGain = 0f;
             multiChannelPerlin.FrequencyGain = 0f;
