@@ -18,6 +18,8 @@ namespace MyFps
         {
             //배경음 플레이
             audioManager.PlayBgm("MenuBgm");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         public void StartGame()

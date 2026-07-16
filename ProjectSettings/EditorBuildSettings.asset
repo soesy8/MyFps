@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MyFps/Scenes/MainMenu.unity
+    guid: 0494f73eaa8550a458ed3d47cbd7f0aa
+  - enabled: 1
+    path: Assets/MyFps/Scenes/Intro.unity
+    guid: 112145854a5906f4da2f1ed586aa3068
+  - enabled: 1
     path: Assets/MyFps/Scenes/PlayScene01.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/MyFps/Scenes/PlayScene02.unity
     guid: 2c8564c394e1f904485dc29ebd78237d
-  - enabled: 1
-    path: Assets/MyFps/Scenes/MainMenu.unity
-    guid: 0494f73eaa8550a458ed3d47cbd7f0aa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

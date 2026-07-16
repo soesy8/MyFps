@@ -5529,7 +5529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.MainMenu
   fader: {fileID: 288387602}
-  loadScene: PlayScene01
+  loadScene: Intro
 --- !u!4 &276258860
 Transform:
   m_ObjectHideFlags: 0
