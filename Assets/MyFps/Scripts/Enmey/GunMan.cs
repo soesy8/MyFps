@@ -1,6 +1,3 @@
-using Newtonsoft.Json.Serialization;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -112,16 +109,6 @@ namespace MyFps
             float targetDis = Vector3.Distance(transform.position, thePlayer.position);
 
             Chase(targetDis);
-
-            /*if (targetDis <= attackRange)
-            {
-                //공격
-                ChangeState(EnemyState.E_Attack);
-            }
-            else if(targetDis <= detectDistance)
-            {
-                ChangeState(EnemyState.E_Chase);
-            }*/
 
             //이동 애니메이션
             animator.SetFloat(MoveSpeed, agent.velocity.magnitude);
