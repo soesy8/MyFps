@@ -7515,7 +7515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3967164120726443643, guid: e844e7fc45418e14c92d6baa8c9d72f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.77
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3967164120726443643, guid: e844e7fc45418e14c92d6baa8c9d72f5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7523,7 +7523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3967164120726443643, guid: e844e7fc45418e14c92d6baa8c9d72f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.19
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 3967164120726443643, guid: e844e7fc45418e14c92d6baa8c9d72f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21058,6 +21058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.FEscapeTrigger
   fader: {fileID: 1962025877}
+  loadToScene: MainMenu
 --- !u!1 &1108898069
 GameObject:
   m_ObjectHideFlags: 0
