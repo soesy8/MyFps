@@ -8607,11 +8607,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5081331787800282473, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
       propertyPath: walkSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5081331787800282473, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
       propertyPath: sprintSpeed
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6762755159240730676, guid: d46b7eadc454ce647b9193813e620a96, type: 3}
       propertyPath: m_LocalPosition.x

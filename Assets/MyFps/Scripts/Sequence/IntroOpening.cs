@@ -16,7 +16,7 @@ namespace MyFps
         #region Unity Event Method
         private void Start()
         {
-            fader.FadeStart(0f);
+            fader.FadeStart(1f);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

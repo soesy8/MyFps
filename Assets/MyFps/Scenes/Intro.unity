@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.032
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -509,7 +509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &449580928
 Transform:
   m_ObjectHideFlags: 0
@@ -584,10 +584,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1969270030086101530}
-  - {fileID: 1969270030086169530}
-  - {fileID: 1969270030086150318}
-  - {fileID: 1969270030086098876}
+  - {fileID: 1969270030086060180}
+  - {fileID: 1969270030086046008}
+  - {fileID: 1969270030086138208}
+  - {fileID: 1969270030086069376}
   m_Father: {fileID: 1969270030086146554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &901245421
@@ -675,7 +675,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.5849056, g: 0.54502565, b: 0, a: 1}
   m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
@@ -1023,6 +1023,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2204546928008950778, guid: 35e01bfd8b0693b478f99ead6abaff67, type: 3}
+      propertyPath: isFadeIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204546928008950778, guid: 35e01bfd8b0693b478f99ead6abaff67, type: 3}
+      propertyPath: delayTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5316572926388627840, guid: 35e01bfd8b0693b478f99ead6abaff67, type: 3}
       propertyPath: m_Name
       value: SceneFader
@@ -4687,12 +4695,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969270030086346984}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 2.842171e-14, z: 2.842171e-14, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalRotation: {x: 0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -3.0200233, y: 2.8, z: 6.0099983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1969270030086169530}
+  m_Father: {fileID: 677371776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1969270030086050824
 Transform:
@@ -4825,12 +4833,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969270030086337668}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 2.842171e-14, z: 2.842171e-14, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalRotation: {x: 0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -3.0200233, y: 2.8, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1969270030086101530}
+  m_Father: {fileID: 677371776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1969270030086065250
 Transform:
@@ -4886,12 +4894,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969270030086356754}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 2.842171e-14, z: 2.842171e-14, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalRotation: {x: 0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 3.019987, y: 2.8, z: 0.039995193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1969270030086098876}
+  m_Father: {fileID: 677371776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1969270030086069396
 Transform:
@@ -5107,8 +5115,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1969270030086076702}
-  - {fileID: 1969270030086069376}
-  m_Father: {fileID: 677371776}
+  m_Father: {fileID: 1969270030086146554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1969270030086099826
 Transform:
@@ -5139,8 +5146,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1969270030086093024}
-  - {fileID: 1969270030086060180}
-  m_Father: {fileID: 677371776}
+  m_Father: {fileID: 1969270030086146554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1969270030086102730
 Transform:
@@ -5165,12 +5171,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969270030086258574}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 2.842171e-14, z: 2.842171e-14, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalRotation: {x: 0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -5.9819984, y: 2.8, z: 0.0399971}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1969270030086150318}
+  m_Father: {fileID: 677371776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1969270030086138486
 Transform:
@@ -5253,6 +5259,10 @@ Transform:
   - {fileID: 1969270030086068602}
   - {fileID: 1969270030086071632}
   - {fileID: 1969270030086084538}
+  - {fileID: 1969270030086101530}
+  - {fileID: 1969270030086169530}
+  - {fileID: 1969270030086150318}
+  - {fileID: 1969270030086098876}
   - {fileID: 677371776}
   m_Father: {fileID: 6910922187085377326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5286,8 +5296,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1969270030086050824}
-  - {fileID: 1969270030086138208}
-  m_Father: {fileID: 677371776}
+  m_Father: {fileID: 1969270030086146554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1969270030086150402
 Transform:
@@ -5504,8 +5513,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1969270030086065250}
-  - {fileID: 1969270030086046008}
-  m_Father: {fileID: 677371776}
+  m_Father: {fileID: 1969270030086146554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1969270030086172888
 Transform:
