@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - CCTV
+  - Play
   layers:
   - Default
   - TransparentFX
