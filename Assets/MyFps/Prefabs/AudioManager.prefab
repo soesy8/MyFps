@@ -77,7 +77,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 75793e9ea0514fc438946985d2c6411a, type: 3}
     volume: 0.5
     pitch: 1
-    loop: 0
+    loop: 1
     playOnAwake: 0
     audioSource: {fileID: 0}
   bgmSound: 
+  audioMixer: {fileID: 24100000, guid: 86dccf019b0f5294294ffc8bacf1cd3d, type: 2}

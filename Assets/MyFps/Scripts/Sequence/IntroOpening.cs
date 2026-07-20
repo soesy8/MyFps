@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace MyFps
 {
@@ -11,6 +12,8 @@ namespace MyFps
         #region Variables
         [SerializeField] private string loadToScene = "PlayScene01";
         public SceneFader fader;
+
+        public InputActionReference escapeAction;
         #endregion
 
         #region Unity Event Method
@@ -19,6 +22,14 @@ namespace MyFps
             fader.FadeStart(1f);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+
+        private void Update()
+        {
+            if (escapeAction.action.WasPressedThisFrame())
+            {
+                Exit();
+            }
         }
         #endregion
 

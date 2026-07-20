@@ -14,11 +14,6 @@ namespace MyFps
         [SerializeField] private Renderer doorSwitch;
         private Color originColor;
 
-        /*private void Awake()
-        {
-            door = FindFirstObjectByType<Door>();
-        }*/
-
         public override string InteractionText
         {
             get
