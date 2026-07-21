@@ -6,7 +6,7 @@ namespace MyFps
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
         #region Variables
-        [SerializeField] private float maxHp = 20f;
+        //[SerializeField] private float maxHp = 20f;
         private float hp;
         [SerializeField] private DamageEffect damageEffect;
         //public UnityAction<float> onDamaged;
@@ -18,9 +18,18 @@ namespace MyFps
         #endregion
 
 
-        /*#region Properties
-        public float HP => hp;
-        #endregion*/
+        #region Properties
+        public float HP
+        {
+            get {  return hp; }
+            private set
+            {
+                hp = value;
+                PlayerStats.Instance.Health = hp;
+            }
+        }
+
+        #endregion
 
 
 
@@ -32,21 +41,22 @@ namespace MyFps
         }
         private void Start()
         {
-            hp = maxHp;
+            HP = PlayerStats.Instance.Health;
         }
         #endregion
 
         #region Custom Method
         public void TakeDamage(float damage)
         {
-            hp -= damage;
+            HP -= damage;
             damageEffect.Play();
 
             //onDamaged?.Invoke(damage);
 
+
             //Debug.Log($"{gameObject.name}, -{damage}, HP : {hp}");
             //뎀지 효과 처리
-            if (hp <= 0f && isDeath == false)
+            if (HP <= 0f && isDeath == false)
             {
                 Die();
             }

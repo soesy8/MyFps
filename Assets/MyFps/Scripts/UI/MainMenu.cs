@@ -14,6 +14,10 @@ namespace MyFps
         public GameObject mainMenu;
         public GameObject optionUI;
         public GameObject creditUI;
+        public GameObject loadGame;
+
+        //저장된 씬 번호
+        private int sceneNumber;
 
         //옵션 UI - 볼륨 조절
         public AudioMixer audioMixer;
@@ -32,14 +36,41 @@ namespace MyFps
 
         private void Start()
         {
-            //게임 처음 실행하면 저장된 옵션 값 로드하기
-            LoadOption();
+            GameDataInit();
+
+            if (sceneNumber < 0)
+            {
+                loadGame.SetActive(false);
+            }
+            else
+            {
+                loadGame.SetActive(true);
+            }
 
             //배경음 플레이
             audioManager.PlayBgm("MenuBgm");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        //게임 데이터 초기화
+        private void GameDataInit()
+        {
+            //게임 처음 실행하면 저장된 옵션 값 로드하기
+            LoadOption();
+
+            //파일에서 저장된 데이터 가져오기
+            SaveLoad.LoadData();
+
+            PlayerStats.Instance.PlayerStatsInit(null);
+
+            sceneNumber = PlayerStats.Instance.SceneNumber;
+
+            //저장된 씬 번호 가져오기
+            //sceneNumber = PlayerPrefs.GetInt("SceneNumber", -1);
+            //Debug.Log($"Load sceneNumber : {sceneNumber}");
+        }
+
 
         public void StartGame()
         {
@@ -52,7 +83,10 @@ namespace MyFps
         public void LoadGame()
         {
             Debug.Log("LoadGame");
+            audioManager.Stop("MenuBgm");
             audioManager.Play("MenuButton");
+
+            fader.FadeTo(sceneNumber);
         }
 
         public void Options()
@@ -71,6 +105,10 @@ namespace MyFps
         {
             Debug.Log("QuitGame");
             audioManager.Play("MenuButton");
+
+            //저장된 게임 리셋
+            PlayerPrefs.DeleteAll();
+
             fader.FadeTo("");
         }
 

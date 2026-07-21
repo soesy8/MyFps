@@ -13,7 +13,7 @@ namespace MyFps
         {
             audioManager = AudioManager.Instance;
             //GameObject player = GetComponent<GameObject>();
-            Debug.Log(audioManager);
+            //Debug.Log(audioManager);
         }
 
         private void Start()

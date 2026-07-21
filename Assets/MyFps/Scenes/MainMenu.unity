@@ -5719,7 +5719,8 @@ MonoBehaviour:
   loadScene: Intro
   mainMenu: {fileID: 2084699699}
   optionUI: {fileID: 811866025}
-  creditUI: {fileID: 111361687}
+  creditUI: {fileID: 950522811}
+  loadGame: {fileID: 1351292196}
   audioMixer: {fileID: 24100000, guid: 86dccf019b0f5294294ffc8bacf1cd3d, type: 2}
   bgmSlider: {fileID: 1058151236}
   sfxSlider: {fileID: 1434512475}
@@ -7440,10 +7441,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Special Thanks\tBoss"
+  m_text: "\uD2B9\uBCC4\uD788 \uACE0\uB9C8\uC6B4 \uBD84 \uC0AC\uC7A5\uB2D8 "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 006373457220ec547bc02c32c28447e0, type: 2}
-  m_sharedMaterial: {fileID: -3385158841900141948, guid: 006373457220ec547bc02c32c28447e0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0062cd3fb57d5b147a72ff1ec276104e, type: 2}
+  m_sharedMaterial: {fileID: -4671438596005124798, guid: 0062cd3fb57d5b147a72ff1ec276104e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7662,7 +7663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &950522812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9863,6 +9864,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371702098}
   m_CullTransparentMesh: 1
+--- !u!1001 &1386318977
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5963
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.73045
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630665952993145224, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524363288040086507, guid: d68459768d578854f98382629244d59e, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d68459768d578854f98382629244d59e, type: 3}
 --- !u!1 &1434512473
 GameObject:
   m_ObjectHideFlags: 0
@@ -10394,10 +10452,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Program\tH.S Lee\n"
+  m_text: "\uD504\uB85C\uADF8\uB7A8   \uBC31 \uB450\uC0B0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 006373457220ec547bc02c32c28447e0, type: 2}
-  m_sharedMaterial: {fileID: -3385158841900141948, guid: 006373457220ec547bc02c32c28447e0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0062cd3fb57d5b147a72ff1ec276104e, type: 2}
+  m_sharedMaterial: {fileID: -4671438596005124798, guid: 0062cd3fb57d5b147a72ff1ec276104e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11289,10 +11347,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Art\t\tY.J Park"
+  m_text: "\uC544\uD2B8        \uAE40 \uD55C\uBCC4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 006373457220ec547bc02c32c28447e0, type: 2}
-  m_sharedMaterial: {fileID: -3385158841900141948, guid: 006373457220ec547bc02c32c28447e0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0062cd3fb57d5b147a72ff1ec276104e, type: 2}
+  m_sharedMaterial: {fileID: -4671438596005124798, guid: 0062cd3fb57d5b147a72ff1ec276104e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15115,3 +15173,4 @@ SceneRoots:
   - {fileID: 388378260}
   - {fileID: 706529365}
   - {fileID: 5644145799333536809}
+  - {fileID: 1386318977}

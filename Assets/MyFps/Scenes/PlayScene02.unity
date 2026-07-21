@@ -22316,7 +22316,6 @@ MonoBehaviour:
   enemies:
   - {fileID: 674060108}
   - {fileID: 7808758057544302350}
-  isActivated: 0
   door: {fileID: 8802262866210634625}
   doorSwitch: {fileID: 159627655}
 --- !u!1 &1191417335
@@ -30198,6 +30197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665280200}
+  - component: {fileID: 1665280203}
   - component: {fileID: 1665280202}
   m_Layer: 0
   m_Name: SceneManager
@@ -30237,6 +30237,18 @@ MonoBehaviour:
   fader: {fileID: 1962025877}
   pistol: {fileID: 1594796579}
   ammoUI: {fileID: 898126084}
+--- !u!114 &1665280203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665280198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ed0d0d786e2ae41a7b88ea84c9ba9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyFps.AutoSave
 --- !u!1 &1666285157
 GameObject:
   m_ObjectHideFlags: 0

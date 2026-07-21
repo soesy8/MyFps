@@ -13,6 +13,10 @@ namespace MyFps
         private int ammoSize = 7;
         private int reserveAmmo;
 
+        private float health;
+        [SerializeField] private float maxHp = 20f;     //체력 초기값
+        private int sceneNumber;
+
         public event Action OnAmmoChanged;
         #endregion
 
@@ -20,18 +24,52 @@ namespace MyFps
         public int AmmoCount => ammoCount;
         public int AmmoSize => ammoSize;
         public int ReserveAmmo => reserveAmmo;
+
+        public float Health
+        {
+            get {  return health; }
+            set {  health = value; }
+        }
+
+        public int SceneNumber
+        {
+            get { return sceneNumber; }
+            set { sceneNumber = value; }
+        }
+
         #endregion
 
-        #region Unity Event Method
-        private void Start()
+        protected override void Awake()
         {
-            //초기화
-            ammoCount = 0;
-            reserveAmmo = 0;
+            base.Awake();
+
+            //PlayerStats 초기화
+            PlayerStatsInit(null);
         }
-        #endregion
+
 
         #region Custom Method
+        //플레이어 스탯 초기화 - 매개변수로 저장된 데이터 가져오기
+        public void PlayerStatsInit(PlayData playData)
+        {
+            //저장된 데이터 체크
+            if (playData != null)
+            {
+                sceneNumber = playData.sceneNumber;
+                ammoCount = playData.ammoCount;
+                health = playData.health;
+                reserveAmmo = 0;
+            }
+            else
+            {
+                sceneNumber = -1;
+                ammoCount = 0;
+                reserveAmmo = 0;
+                health = maxHp;
+            }
+        }
+
+
         //탄약 추가
         public void AddAmmo(int amount)
         {
