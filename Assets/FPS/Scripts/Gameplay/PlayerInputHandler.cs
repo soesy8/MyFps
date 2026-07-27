@@ -1,10 +1,15 @@
 using Unity.FPS.Game;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Unity.FPS.Gameplay
 {
     public class PlayerInputHandler : MonoBehaviour
     {
+        //inputSystem class 인스턴스 선언
+        private InputSystem_Actions inputActions;
+
+
         [Tooltip("Sensitivity multiplier for moving the camera around")]
         public float LookSensitivity = 1f;
 
@@ -19,7 +24,23 @@ namespace Unity.FPS.Gameplay
 
         [Tooltip("Used to flip the horizontal input axis")]
         public bool InvertXAxis = false;
+        private void Awake()
+        {
+            //참조 / inputSystem class 인스턴스 생성
+            inputActions = new InputSystem_Actions();
+        }
 
+        private void OnEnable()
+        {
+            //inputsystem 활성화
+            inputActions.Enable();
+        }
+
+        private void OnDisable()
+        {
+            //inputsystem 비활성화
+            inputActions.Disable();
+        }
 
         void Start()
         {   
@@ -41,8 +62,9 @@ namespace Unity.FPS.Gameplay
         {
             if (CanProcessInput())
             {
-                Vector3 move = new Vector3(Input.GetAxisRaw(GameConstants.k_AxisNameHorizontal), 0f,
-                    Input.GetAxisRaw(GameConstants.k_AxisNameVertical));
+                Vector2 move2 = inputActions.Player.Move.ReadValue<Vector2>();
+
+                Vector3 move = new Vector3(move2.x, 0f, move2.y);
 
                 // constrain move input to a maximum magnitude of 1, otherwise diagonal movement might exceed the max move speed defined
                 move = Vector3.ClampMagnitude(move, 1);
@@ -103,24 +125,43 @@ namespace Unity.FPS.Gameplay
             }
 
             return 0f;
+
+            /*if (CanProcessInput())
+            {
+                float i = 0;
+
+                // handle inverting vertical input
+                if (InvertYAxis && mouseInputName == GameConstants.k_MouseAxisNameVertical)
+                    i *= -1f;
+
+                // apply sensitivity multiplier
+                i *= LookSensitivity;
+
+                // reduce mouse input amount to be equivalent to stick movement
+                i *= 0.01f;
+
+                return i;
+            }
+
+            return 0f;*/
         }
 
         public bool GetCrouchInputDown()
         {            
-            /*if (CanProcessInput())
+            if (CanProcessInput())
             {
-                return Input.GetButtonDown(GameConstants.k_ButtonNameCrouch);
-            }*/
+                return inputActions.Player.Crouch.WasPressedThisFrame();
+            }
 
             return false;
         }
 
         public bool GetCrouchInputReleased()
         {
-            /*if (CanProcessInput())
+            if (CanProcessInput())
             {
-                return Input.GetButtonUp(GameConstants.k_ButtonNameCrouch);
-            }*/
+                return inputActions.Player.Crouch.WasReleasedThisFrame();
+            }
 
             return false;
         }
@@ -135,6 +176,23 @@ namespace Unity.FPS.Gameplay
             return false;
         }
 
-        
+        public int GetSwitchWeaponInput()
+        {
+            if (CanProcessInput())
+            {
+                if (inputActions.Player.WeaponSwitch.ReadValue<Vector2>().y > 0)
+                {
+                    return -1;
+                }
+
+                if (inputActions.Player.WeaponSwitch.ReadValue<Vector2>().y < 0)
+                {
+                    return 1;
+                }
+            }
+
+            return 0;
+        }
+
     }
 }
