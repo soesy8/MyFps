@@ -5479,7 +5479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac5ddb3ce9b8884ca9588dc620ffcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookSensitivity: 1
+  LookSensitivity: 0.13
   WebglLookSensitivityMultiplier: 0.25
   TriggerAxisThreshold: 0.4
   InvertYAxis: 1

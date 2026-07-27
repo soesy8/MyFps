@@ -1,6 +1,5 @@
 using Unity.FPS.Game;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Unity.FPS.Gameplay
 {
@@ -8,7 +7,6 @@ namespace Unity.FPS.Gameplay
     {
         //inputSystem class 인스턴스 선언
         private InputSystem_Actions inputActions;
-
 
         [Tooltip("Sensitivity multiplier for moving the camera around")]
         public float LookSensitivity = 1f;
@@ -24,33 +22,36 @@ namespace Unity.FPS.Gameplay
 
         [Tooltip("Used to flip the horizontal input axis")]
         public bool InvertXAxis = false;
+
         private void Awake()
         {
-            //참조 / inputSystem class 인스턴스 생성
+            //참조
+            //inputSystem class 인스턴스 생성
             inputActions = new InputSystem_Actions();
         }
 
         private void OnEnable()
         {
-            //inputsystem 활성화
+            //inputSystem class 인스턴스 활성화
             inputActions.Enable();
         }
 
         private void OnDisable()
         {
-            //inputsystem 비활성화
+            //inputSystem class 인스턴스 비활성화
             inputActions.Disable();
+
         }
 
         void Start()
-        {   
+        {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
         void LateUpdate()
         {
-            
+
         }
 
         public bool CanProcessInput()
@@ -63,7 +64,6 @@ namespace Unity.FPS.Gameplay
             if (CanProcessInput())
             {
                 Vector2 move2 = inputActions.Player.Move.ReadValue<Vector2>();
-
                 Vector3 move = new Vector3(move2.x, 0f, move2.y);
 
                 // constrain move input to a maximum magnitude of 1, otherwise diagonal movement might exceed the max move speed defined
@@ -109,7 +109,16 @@ namespace Unity.FPS.Gameplay
         {
             if (CanProcessInput())
             {
-                float i = Input.GetAxisRaw(mouseInputName);
+                float i = 0;
+
+                if (mouseInputName == GameConstants.k_MouseAxisNameVertical)
+                {
+                    i = inputActions.Player.Look.ReadValue<Vector2>().y;
+                }
+                else
+                {
+                    i = inputActions.Player.Look.ReadValue<Vector2>().x;
+                }
 
                 // handle inverting vertical input
                 if (InvertYAxis && mouseInputName == GameConstants.k_MouseAxisNameVertical)
@@ -125,29 +134,10 @@ namespace Unity.FPS.Gameplay
             }
 
             return 0f;
-
-            /*if (CanProcessInput())
-            {
-                float i = 0;
-
-                // handle inverting vertical input
-                if (InvertYAxis && mouseInputName == GameConstants.k_MouseAxisNameVertical)
-                    i *= -1f;
-
-                // apply sensitivity multiplier
-                i *= LookSensitivity;
-
-                // reduce mouse input amount to be equivalent to stick movement
-                i *= 0.01f;
-
-                return i;
-            }
-
-            return 0f;*/
         }
 
         public bool GetCrouchInputDown()
-        {            
+        {
             if (CanProcessInput())
             {
                 return inputActions.Player.Crouch.WasPressedThisFrame();
@@ -176,16 +166,16 @@ namespace Unity.FPS.Gameplay
             return false;
         }
 
+
         public int GetSwitchWeaponInput()
         {
             if (CanProcessInput())
             {
-                if (inputActions.Player.WeaponSwitch.ReadValue<Vector2>().y > 0)
+                if (inputActions.Player.WeaponSwitch.ReadValue<Vector2>().y > 0f)
                 {
                     return -1;
                 }
-
-                if (inputActions.Player.WeaponSwitch.ReadValue<Vector2>().y < 0)
+                if (inputActions.Player.WeaponSwitch.ReadValue<Vector2>().y < 0f)
                 {
                     return 1;
                 }

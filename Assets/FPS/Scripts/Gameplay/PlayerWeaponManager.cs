@@ -99,7 +99,7 @@ namespace Unity.FPS.Gameplay
         {
             UpdateWeaponSwitching();
 
-            //weaponParentSocket.localPosition = weaponMainLocalPosition;
+            weaponParentSocket.localPosition = weaponMainLocalPosition;
         }
 
 
