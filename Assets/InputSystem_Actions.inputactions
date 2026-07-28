@@ -104,6 +104,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Aim",
+                    "type": "Button",
+                    "id": "3551cc57-664e-4bbb-aad5-2216c0db5830",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -528,7 +537,7 @@
                 {
                     "name": "up",
                     "id": "8d82c555-7f9e-48fa-b074-bb821a9ca557",
-                    "path": "",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -539,7 +548,7 @@
                 {
                     "name": "down",
                     "id": "32406700-261e-45ca-8c0e-a968a62ba52c",
-                    "path": "",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -550,7 +559,7 @@
                 {
                     "name": "left",
                     "id": "94915c47-3b57-4f92-b40d-de1ef6708312",
-                    "path": "",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -561,13 +570,24 @@
                 {
                     "name": "right",
                     "id": "9d14ea78-2d6b-4f25-ac33-87a3ace06e8d",
-                    "path": "",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "WeaponSwitch",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "de0e597f-2069-4cd3-a21f-5ab8bb2f5518",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

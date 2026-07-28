@@ -144,6 +144,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Game.WeaponController
   weaponRoot: {fileID: 1505447205160222267}
+  switchWeaponSfx: {fileID: 0}
+  crossHairDefault:
+    CrossHairSprite: {fileID: 21300000, guid: 458d56d3ebf67604ba060ed9052397f9, type: 3}
+    CrossHairSize: 30
+    CrossHairColor: {r: 1, g: 1, b: 1, a: 1}
+  crossHairTargetInSight:
+    CrossHairSprite: {fileID: 21300000, guid: 458d56d3ebf67604ba060ed9052397f9, type: 3}
+    CrossHairSize: 30
+    CrossHairColor: {r: 0, g: 0.7383387, b: 1, a: 1}
+  aimZoomRatio: 0.7
+  aimOffset: {x: 0, y: 0.13, z: 0}
 --- !u!82 &8090847488450120274
 AudioSource:
   m_ObjectHideFlags: 0

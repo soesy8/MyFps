@@ -33,6 +33,10 @@ namespace Unity.FPS.Game
         public CrossHairData crossHairDefault;          //기본
         public CrossHairData crossHairTargetInSight;    //적 포착 시(타겟팅)
 
+        //조준
+        [Range(0, 1)] public float aimZoomRatio = 1f;   //조준 시 줌 비율
+        public Vector3 aimOffset = Vector3.zero;        //조준 위치 이동 시 무기별 위치 조정값
+
         public GameObject Owner { get; set; }               //무기 주인
         public GameObject SourcePrefab { get; set; }        //무기를 생성한 프리팹
         public bool IsWeaponAcitve { get; private set; }    //무기 활성화 여부

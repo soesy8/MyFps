@@ -89,7 +89,7 @@ namespace Unity.FPS.Gameplay
         {
             if (CanProcessInput())
             {
-                return Input.GetButtonDown(GameConstants.k_ButtonNameJump);
+                return inputActions.Player.Jump.WasPressedThisFrame();
             }
 
             return false;
@@ -99,7 +99,7 @@ namespace Unity.FPS.Gameplay
         {
             if (CanProcessInput())
             {
-                return Input.GetButton(GameConstants.k_ButtonNameJump);
+                return inputActions.Player.Jump.IsPressed();
             }
 
             return false;
@@ -158,10 +158,10 @@ namespace Unity.FPS.Gameplay
 
         public bool GetSprintInputHeld()
         {
-            /*if (CanProcessInput())
+            if (CanProcessInput())
             {
-                return Input.GetButton(GameConstants.k_ButtonNameSprint);
-            }*/
+                return inputActions.Player.Sprint.IsPressed();
+            }
 
             return false;
         }
@@ -183,6 +183,18 @@ namespace Unity.FPS.Gameplay
 
             return 0;
         }
+
+        //조준 상태 인풋
+        public bool GetAimInputHeld()
+        {
+            if (CanProcessInput())
+            {
+                return inputActions.Player.Aim.IsPressed();
+            }
+
+            return false;
+        }
+
 
     }
 }
