@@ -5548,7 +5548,7 @@ MonoBehaviour:
   defaultWeaponPosition: {fileID: 1841072762710260398}
   downWeaponPosition: {fileID: 4149389865222750965}
   aimingWeaponPosition: {fileID: 8528395496428365225}
-  weaponSwitchDeley: 0.5
+  weaponSwitchDelay: 0.5
   weaponCamera: {fileID: 4204578337510974491}
   defaultFov: 60
   weaponFovMultiplier: 1
