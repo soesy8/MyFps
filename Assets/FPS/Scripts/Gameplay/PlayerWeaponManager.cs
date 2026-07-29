@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using Unity.FPS.Game;
-using UnityEditor.Search;
 
 namespace Unity.FPS.Gameplay
 {
@@ -65,6 +64,17 @@ namespace Unity.FPS.Gameplay
 
         //조준
         public float AimingAnimationSpeed = 10f;    //연출 속도
+
+        //무기 흔들기
+        public float bobFrequency = 10f;            //Sin 곡선의 속도 계수
+        public float bobSharpness = 10f;            //무기 흔들기의 Lerp 계수
+        public float defaultBobAmount = 0.05f;      //기본 흔들림 양
+        public float aimingBobAmount = 0.02f;       //조준 흔들림 양
+
+        private float m_WeaponBobFactor;            //이동속도에 따른 흔들림 계수
+        private Vector3 m_LastCharacterPosition;    //바로 이전 프레임에서의 캐릭터 위치
+
+        private Vector3 m_WeaponBobLocalPosition;   //최종적으로 계산된 흔들림 양
         #endregion
 
 
@@ -106,6 +116,25 @@ namespace Unity.FPS.Gameplay
         {
             //현재 손에 들고있는 활성화된 무기 가져오기
             WeaponController activeWeapon = GetActiveWeapon();
+
+            //현재 무기를 들고 있어야
+            if(weaponSwitchState == WeaponSwitchState.Up)
+            {
+                //조준 가능
+                IsAiming = inputHandler.GetAimInputHeld();
+
+                //발사 가능
+                activeWeapon.HandleShootInputs(
+                    inputHandler.GetFireInputDown(),
+                    inputHandler.GetFireInputHeld(),
+                    inputHandler.GetFireInputReleased()
+                );
+
+                /*if(isShoot)
+                {
+                    //반동처리
+                }*/
+            }
 
             //인풋처리
             IsAiming = inputHandler.GetAimInputHeld();
@@ -150,9 +179,10 @@ namespace Unity.FPS.Gameplay
         private void LateUpdate()
         {
             UpdateWeaponAiming();
+            UpdateWeaponBob();
             UpdateWeaponSwitching();
 
-            weaponParentSocket.localPosition = weaponMainLocalPosition;
+            weaponParentSocket.localPosition = weaponMainLocalPosition + m_WeaponBobLocalPosition;
         }
         #endregion
 
@@ -163,6 +193,44 @@ namespace Unity.FPS.Gameplay
         {
             cc.PlayerCamera.fieldOfView = fov;
             weaponCamera.fieldOfView = fov * weaponFovMultiplier;
+        }
+
+        //무기 흔들림 계산
+        private void UpdateWeaponBob()
+        {
+            if(Time.deltaTime > 0)
+            {
+                //현재 프레임에서의 캐릭터 이동 속도
+                Vector3 playerCharacterVelocity = (cc.transform.position
+                    - m_LastCharacterPosition) / Time.deltaTime;
+                
+                //캐릭터 이동 속도에 따른 흔들림 구하기
+                float characterMovementFactor = 0f;
+                if(cc.IsGrounded)
+                {
+                    characterMovementFactor = Mathf.Clamp01(
+                        playerCharacterVelocity.magnitude / cc.MaxSpeedOnGround
+                        * cc.SprintSpeedModifier);
+                }
+                
+                m_WeaponBobFactor = Mathf.Lerp(m_WeaponBobFactor, 
+                    characterMovementFactor, Time.deltaTime * bobFrequency);
+
+                //흔들림 양 : 0.02, 0.05
+                float bobAmount = IsAiming ? aimingBobAmount : defaultBobAmount;
+                float frequency = bobFrequency;
+                float hBobValue = Mathf.Sin(frequency * Time.time) * bobAmount;
+                float vBobValue = ((Mathf.Sin(frequency * Time.time * 2f)
+                     * 0.5f) + 0.5f) * bobAmount * m_WeaponBobFactor;
+                
+
+                m_WeaponBobLocalPosition.x = hBobValue;
+                m_WeaponBobLocalPosition.y = Mathf.Abs(vBobValue);
+                
+                //매 프레임 마다 캐릭터 위치 저장
+                m_LastCharacterPosition = cc.transform.position;
+            }
+            
         }
 
         //조준 연출 : 기본 위치 <-> 조준 위치

@@ -195,6 +195,36 @@ namespace Unity.FPS.Gameplay
             return false;
         }
 
+        //발사 버튼 입력 처리
+        public bool GetFireInputDown()
+        {
+            if (CanProcessInput())
+            {
+                return inputActions.Player.Shoot.WasPressedThisFrame();
+            }
+
+            return false;
+        }
+
+        public bool GetFireInputReleased()
+        {
+            if(CanProcessInput())
+            {
+                return inputActions.Player.Shoot.WasReleasedThisFrame();
+            }
+
+            return false;
+        }
+
+        public bool GetFireInputHeld()
+        {
+            if (CanProcessInput())
+            {
+                return inputActions.Player.Shoot.IsPressed();
+            }
+
+            return false;
+        }
 
     }
 }
