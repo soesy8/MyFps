@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Game.WeaponController
   weaponRoot: {fileID: 1505447205160222267}
-  switchWeaponSfx: {fileID: 0}
+  switchWeaponSfx: {fileID: 8300000, guid: a1dfc44ae6f5c9a4ab0a7865e2b34791, type: 3}
   crossHairDefault:
     CrossHairSprite: {fileID: 21300000, guid: 458d56d3ebf67604ba060ed9052397f9, type: 3}
     CrossHairSize: 30
@@ -156,6 +156,15 @@ MonoBehaviour:
   aimZoomRatio: 0.7
   aimOffset: {x: 0, y: 0.13, z: 0}
   shootType: 0
+  maxAmmo: 8
+  delayBetweenShots: 1
+  weaponMuzzle: {fileID: 8334323006752503713}
+  muzzleFlashPrefab: {fileID: 748781637555137343, guid: 4f5d4e5eaa0e5104791549cea3dc3f23, type: 3}
+  shootSfx: {fileID: 8300000, guid: 56599e4183d17874aa1da60dd8666eeb, type: 3}
+  recoilForce: 0.5
+  projectilePrefab: {fileID: -3144733469832885765, guid: f05c7e6fbbfbe824388456bb4abff9d4, type: 3}
+  bulletsPerShot: 24
+  bulletSpreadAngle: 7
 --- !u!82 &8090847488450120274
 AudioSource:
   m_ObjectHideFlags: 0
