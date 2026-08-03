@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3659995153115176982}
-  - component: {fileID: 5594261418709591622}
+  - component: {fileID: 8958606314677059549}
   m_Layer: 0
   m_Name: Projectile_Blaster
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 8402172112652589804}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5594261418709591622
+--- !u!114 &8958606314677059549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3659995153115176983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f20bd3038135a749a11492dca7186a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c942a9038452594e978445d440a5f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Gameplay.ProjectileStandard
   maxLifeTime: 5
@@ -51,13 +51,14 @@ MonoBehaviour:
   tip: {fileID: 1135791333161367127}
   gravityDown: 0
   radius: 0.01
-  hitableLayers:
+  hittableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  impactVfxPrefab: {fileID: 7655095426451682942, guid: 4d48b487f11e62940a978c7c0c0cbcb4, type: 3}
+  impactVfxPrefab: {fileID: 7655095426451682942, guid: a7d68b1a502e02a49b8efb1b86a8c931, type: 3}
   impactVfxLimeTime: 3
   impactVfxSpawnOffset: 0.1
   impactSfxClip: {fileID: 0}
+  damage: 15
 --- !u!1 &5564024855854763701
 GameObject:
   m_ObjectHideFlags: 0

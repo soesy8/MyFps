@@ -3,11 +3,11 @@ using UnityEngine;
 namespace Unity.FPS.Game
 {
     /// <summary>
-    /// 충돌체에 부착되어 데미지를 입는 클래스
+    /// 충돌체에 부착되어 데미지를 처리하는 클래스
     /// </summary>
     public class Damageable : MonoBehaviour
     {
-        // ======== Variables ========
+        #region Variables
         //참조
         private Health health;
 
@@ -16,28 +16,31 @@ namespace Unity.FPS.Game
 
         //자신에게 입히는 데미지 계수
         [SerializeField] private float sensiblityToSelfDamage = 0f;
+        #endregion
 
-        // ======== Unity Event Method ========
+        #region Unity Event Method
         private void Awake()
         {
             //참조
             health = GetComponent<Health>();
-            if (health == null)
+            if(health == null)
             {
                 health = GetComponentInParent<Health>();
             }
         }
+        #endregion
 
-        // ======== Custom Method ========
-        //데미지 처리, 에미지량, 폭발 데미지 여부, 데미지 주는 주체
+        #region Custom Method
+        //데미지 처리, damage:데미지량, isExplosionDamage:폭발 데미지 여부, damageSource: 데미지를 주는 주체
         public void InflictDamage(float damage, bool isExplosionDamage, GameObject damageSource)
         {
-            if (health == null) return;
+            if (health == null)
+                return;
 
             var totalDamage = damage;
 
             //폭발 체크
-            if (isExplosionDamage)
+            if(isExplosionDamage)
             {
                 totalDamage *= 1f;
             }
@@ -47,11 +50,14 @@ namespace Unity.FPS.Game
             }
 
             //셀프 데미지 체크
-            if (health.gameObject == damageSource)
+            if(health.gameObject == damageSource)
             {
                 totalDamage *= sensiblityToSelfDamage;
             }
-        }
 
+            //체력에 데미지 적용
+            health.TakeDamage(totalDamage, damageSource);
+        }
+        #endregion
     }
 }

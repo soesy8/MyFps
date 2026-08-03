@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 106790115311484948}
   - component: {fileID: 106790115311484949}
   - component: {fileID: 106790115311484954}
-  - component: {fileID: 3387538025543226746}
+  - component: {fileID: 5849995467245898940}
+  - component: {fileID: 5060845177671951733}
   m_Layer: 0
   m_Name: Projectile_Disc
   m_TagString: Untagged
@@ -92,7 +93,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3387538025543226746
+--- !u!114 &5849995467245898940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 106790115311484953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f20bd3038135a749a11492dca7186a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c942a9038452594e978445d440a5f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Gameplay.ProjectileStandard
   maxLifeTime: 5
@@ -110,14 +111,38 @@ MonoBehaviour:
   tip: {fileID: 106790115311484948}
   gravityDown: 10
   radius: 0.01
-  hitableLayers:
+  hittableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   impactVfxPrefab: {fileID: 4260779743739990948, guid: bbe6bdea7cd168e428a309e9eb2e728b, type: 3}
-  impactVfxLifeTime: 3
+  impactVfxLimeTime: 3
   impactVfxSpawnOffset: 0.1
-  impactSfxClip: {fileID: 8300000, guid: afe25096f4b9e334994e6ca4c8afc3a3, type: 3}
+  impactSfxClip: {fileID: 8300000, guid: 9f10062f38150d54a8a9779273675305, type: 3}
   damage: 40
+--- !u!114 &5060845177671951733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106790115311484953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f931a8d109a9f489e8c950aedcc822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Gameplay.ProjectileChargeParameters
+  damage:
+    Min: 80
+    Max: 350
+  speed:
+    Min: 20
+    Max: 40
+  gravityDown:
+    Min: 10
+    Max: 5
+  radius:
+    Min: 0.2
+    Max: 0.2
 --- !u!1 &1945832826066038730
 GameObject:
   m_ObjectHideFlags: 0

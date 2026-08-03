@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2225486910712267856}
-  - component: {fileID: 8697156388538400666}
   - component: {fileID: 7583640433812654122}
+  - component: {fileID: 5658484607464363184}
+  - component: {fileID: 3132769988301120256}
   m_Layer: 8
   m_Name: Weapon_Launcher
   m_TagString: Untagged
@@ -35,38 +36,6 @@ Transform:
   - {fileID: 2749496858225023403}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8697156388538400666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2225486910712267859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344c2da8da204424ebafe49c747726dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Game.WeaponController
-  weaponRoot: {fileID: 5646165488041817916}
-  switchWeaponSfx: {fileID: 8300000, guid: a1dfc44ae6f5c9a4ab0a7865e2b34791, type: 3}
-  crossHairDefault:
-    CrossHairSprite: {fileID: 21300000, guid: 7eb1358ca4294fb48abd9ddfbba9a79f, type: 3}
-    CrossHairSize: 100
-    CrossHairColor: {r: 1, g: 1, b: 1, a: 1}
-  crossHairTargetInSight:
-    CrossHairSprite: {fileID: 21300000, guid: 7eb1358ca4294fb48abd9ddfbba9a79f, type: 3}
-    CrossHairSize: 100
-    CrossHairColor: {r: 0.18813777, g: 1, b: 0, a: 1}
-  aimZoomRatio: 0.8
-  aimOffset: {x: 0, y: 0, z: 0}
-  shootType: 2
-  maxAmmo: 8
-  delayBetweenShots: 0.5
-  weaponMuzzle: {fileID: 2749496858225023403}
-  muzzleFlashPrefab: {fileID: 748781637555137343, guid: 9f671b22f25370048a18fb1f821294ec, type: 3}
-  shootSfx: {fileID: 8300000, guid: 575a742c2c95c534189cfeeb3c5b91b9, type: 3}
-  recoilForce: 0.5
-  projectilePrefab: {fileID: 3387538025543226746, guid: 0e23901b938cf4f4eb86850d912715eb, type: 3}
 --- !u!82 &7583640433812654122
 AudioSource:
   m_ObjectHideFlags: 0
@@ -164,6 +133,76 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5658484607464363184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225486910712267859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d85b342f0d63d4aafc8e2911e8f87b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Game.WeaponController
+  weaponRoot: {fileID: 5646165488041817916}
+  switchWeaponSfx: {fileID: 8300000, guid: b58e7a359779b48459980a7f0db37446, type: 3}
+  crossHairDefault:
+    CrossHairSprite: {fileID: 21300000, guid: 68bfc835c46c9b44b9e6efb11901646e, type: 3}
+    CrossHairSize: 100
+    CrossHairColor: {r: 0.5624957, g: 1, b: 0.19811308, a: 1}
+  crossHairTargetInSight:
+    CrossHairSprite: {fileID: 21300000, guid: 68bfc835c46c9b44b9e6efb11901646e, type: 3}
+    CrossHairSize: 100
+    CrossHairColor: {r: 0.24286534, g: 0.8050314, b: 0.022783771, a: 1}
+  aimZoomratio: 0.8
+  aimOffset: {x: 0, y: 0, z: 0}
+  shootType: 2
+  maxAmmo: 8
+  delayBetweenShots: 0.5
+  weaponMuzzle: {fileID: 2749496858225023403}
+  muzzleFlashPrefab: {fileID: 0}
+  shootSfx: {fileID: 8300000, guid: db351fd9be1155b458c57f20a33c8e7a, type: 3}
+  recoilForce: 0.5
+  ProjectilePrefab: {fileID: 5849995467245898940, guid: 0e23901b938cf4f4eb86850d912715eb, type: 3}
+  bulletsPerShot: 1
+  bulletSpreadAngle: 0
+  ammoUseOnStartCharge: 1
+  lastChargeTriggerTimeTamp: 0
+--- !u!114 &3132769988301120256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225486910712267859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995ceb3e2e76f8949aaf482dfc3491e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Gameplay.ChargedWeaponEffectHandler
+  chargingObject: {fileID: 2990922162098100103}
+  spiningFrame: {fileID: 2990922162098100101}
+  diskOrbitParticlePrefab: {fileID: 1087039822203223203, guid: b9cf7bff98404174d83a37d58c543aa5, type: 3}
+  scale:
+    Min: {x: 0.1, y: 0.1, z: 0.1}
+    Max: {x: 1, y: 1, z: 1}
+  offset: {x: 0, y: 0, z: 0.764}
+  parentTransform: {fileID: 0}
+  orbitY:
+    Min: 3.1416
+    Max: 12.5664
+  radius:
+    Min: {x: 0.5, y: 0.5, z: 0.5}
+    Max: {x: 1.5, y: 1.5, z: 1.5}
+  spiningSpeed:
+    Min: 0
+    Max: 0
+  chargeSound: {fileID: 8300000, guid: d06f2933644a4974c990aea25c7ddff2, type: 3}
+  loopChargeWeaponSfx: {fileID: 8300000, guid: 600c107be4433a74cbb272c6911aa4f3, type: 3}
+  fadeLoopDuration: 0.5
+  useProceduralPitchOnLoop: 0
+  maxProceduralPitchValue: 2
 --- !u!1 &2990922162098100101
 GameObject:
   m_ObjectHideFlags: 0

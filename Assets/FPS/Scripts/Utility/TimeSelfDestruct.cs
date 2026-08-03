@@ -2,11 +2,13 @@ using UnityEngine;
 
 namespace Unity.FPS.Utility
 {
-    //생성 후 lifetime이 지나면 자동으로 킬
+    /// <summary>
+    /// 생성후 lifeTime이 지나면 오브젝트를 자동 킬 한다
+    /// </summary>
     public class TimeSelfDestruct : MonoBehaviour
     {
-        public float lifeTime = 1f;
-        private float spawnTime;        //생성시간
+        public float lifeTime = 3f;
+        private float spawnTime;        //생성 시간
 
         private void Awake()
         {
@@ -15,7 +17,11 @@ namespace Unity.FPS.Utility
 
         private void Update()
         {
-            //
+            if(Time.time > spawnTime + lifeTime)
+            {
+                Destroy(gameObject);
+            }
         }
+
     }
 }

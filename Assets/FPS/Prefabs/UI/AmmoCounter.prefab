@@ -196,7 +196,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.607
+  m_FillAmount: 0.55
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -211,7 +211,8 @@ GameObject:
   m_Component:
   - component: {fileID: 645032500860478886}
   - component: {fileID: 645032500860478887}
-  - component: {fileID: 5988345802405877130}
+  - component: {fileID: 9214201941437819547}
+  - component: {fileID: 8708836002720227379}
   m_Layer: 5
   m_Name: AmmoCounter
   m_TagString: Untagged
@@ -254,7 +255,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &5988345802405877130
+--- !u!114 &9214201941437819547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,15 +264,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 645032500860478885}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e644a3159954c5243b5b8e78514e547d, type: 3}
+  m_Script: {fileID: 11500000, guid: e163da91393067f4d903de5748719990, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.UI.AmmoCounter
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoCounter
   weaponIndexText: {fileID: 2904203937318842817}
   ammoFillImage: {fileID: 645032500597732956}
   ammoFillSharpness: 10
   weaponSwitchSharpness: 10
   canvasGroup: {fileID: 645032500860478887}
   unSelectedOpacity: 0.5
+  fillBarColorChange: {fileID: 0}
+--- !u!114 &8708836002720227379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645032500860478885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a3f9f381b927c4d807c355c5709543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FillBarColorChange
+  foregroundImage: {fileID: 645032500597732956}
+  defaultForegroundColorFull: {r: 1, g: 1, b: 1, a: 1}
+  flashForegroundColorFull: {r: 0, g: 0, b: 0, a: 1}
+  backgroundImage: {fileID: 645032499974091307}
+  defalutBackgroundColorFull: {r: 0, g: 0, b: 0, a: 0.5019608}
+  flashBackgroundColorEmpty: {r: 1, g: 0, b: 0, a: 0.5019608}
+  fullValue: 1
+  emptyValue: 0.1
+  colorChangeSharpness: 5
 --- !u!1 &1644869328222790790
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,8 +362,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 75063828274bdb145a55f6dd2f22e8b2, type: 2}
-  m_sharedMaterial: {fileID: 21098970014090698, guid: 75063828274bdb145a55f6dd2f22e8b2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 149d3a4d53853d849ad5ca8936bb12b7, type: 2}
+  m_sharedMaterial: {fileID: -7962998013682795897, guid: 149d3a4d53853d849ad5ca8936bb12b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -476,8 +499,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 75063828274bdb145a55f6dd2f22e8b2, type: 2}
-  m_sharedMaterial: {fileID: 21098970014090698, guid: 75063828274bdb145a55f6dd2f22e8b2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 149d3a4d53853d849ad5ca8936bb12b7, type: 2}
+  m_sharedMaterial: {fileID: -7962998013682795897, guid: 149d3a4d53853d849ad5ca8936bb12b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -914,7 +937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5373236238369828265
 RectTransform:
   m_ObjectHideFlags: 0

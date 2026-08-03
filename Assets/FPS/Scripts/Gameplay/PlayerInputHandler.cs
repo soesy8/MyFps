@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Unity.FPS.Gameplay
 {
+    /// <summary>
+    /// 플레이어 인풋을 관리하는 클래스
+    /// </summary>
     public class PlayerInputHandler : MonoBehaviour
     {
         //inputSystem class 인스턴스 선언
@@ -44,14 +47,14 @@ namespace Unity.FPS.Gameplay
         }
 
         void Start()
-        {
+        {   
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
         void LateUpdate()
         {
-
+            
         }
 
         public bool CanProcessInput()
@@ -137,9 +140,9 @@ namespace Unity.FPS.Gameplay
         }
 
         public bool GetCrouchInputDown()
-        {
+        {            
             if (CanProcessInput())
-            {
+            {                
                 return inputActions.Player.Crouch.WasPressedThisFrame();
             }
 
@@ -166,12 +169,12 @@ namespace Unity.FPS.Gameplay
             return false;
         }
 
-
+        //무기 교체 인풋 처리
         public int GetSwitchWeaponInput()
         {
             if (CanProcessInput())
             {
-                if (inputActions.Player.WeaponSwitch.ReadValue<Vector2>().y > 0f)
+                if(inputActions.Player.WeaponSwitch.ReadValue<Vector2>().y > 0f)
                 {
                     return -1;
                 }
@@ -184,7 +187,7 @@ namespace Unity.FPS.Gameplay
             return 0;
         }
 
-        //조준 상태 인풋
+        //조준 입력 처리
         public bool GetAimInputHeld()
         {
             if (CanProcessInput())
@@ -194,13 +197,13 @@ namespace Unity.FPS.Gameplay
 
             return false;
         }
-
-        //발사 버튼 입력 처리
+        
+        //발사 버튼 입력처리
         public bool GetFireInputDown()
         {
             if (CanProcessInput())
             {
-                return inputActions.Player.Shoot.WasPressedThisFrame();
+                return inputActions.Player.Fire.WasPressedThisFrame();
             }
 
             return false;
@@ -208,9 +211,9 @@ namespace Unity.FPS.Gameplay
 
         public bool GetFireInputReleased()
         {
-            if(CanProcessInput())
+            if (CanProcessInput())
             {
-                return inputActions.Player.Shoot.WasReleasedThisFrame();
+                return inputActions.Player.Fire.WasReleasedThisFrame();
             }
 
             return false;
@@ -220,7 +223,7 @@ namespace Unity.FPS.Gameplay
         {
             if (CanProcessInput())
             {
-                return inputActions.Player.Shoot.IsPressed();
+                return inputActions.Player.Fire.IsPressed();
             }
 
             return false;
