@@ -41,6 +41,7 @@ namespace Unity.FPS.Gameplay
 
         //데미지
         public float damage = 15f;                  //데미지 량
+        [SerializeField] private DamageArea damageArea;              //범위 데미지 주기 객체
         #endregion
 
         #region Unity Event Method
@@ -51,6 +52,8 @@ namespace Unity.FPS.Gameplay
             //이벤트 함수 등록
             projectileBase.onShoot += OnShoot;
 
+            //범위 데미지 주기 객체 가져오기
+            damageArea = GetComponent<DamageArea>();
 
             //킬 예약
             Destroy(gameObject, maxLifeTime);
@@ -150,6 +153,11 @@ namespace Unity.FPS.Gameplay
         {
             //데미지
             //Debug.Log($"damage: {damage}");
+            if(damageArea)
+            {
+                damageArea.InflictDamageArea(damage, point,
+                    hittableLayers,QueryTriggerInteraction.Collide, projectileBase.Owner);
+            }
             Damageable damageable = collider.GetComponent<Damageable>();
             if(damageable)
             {
@@ -159,8 +167,8 @@ namespace Unity.FPS.Gameplay
             //충돌 효과 (vfx, sfx)
             if(impactVfxPrefab)
             {
-                GameObject impactGo = Instantiate(impactVfxPrefab, point + (normal * impactVfxSpawnOffset),
-                    Quaternion.LookRotation(normal));
+                GameObject impactGo = Instantiate(impactVfxPrefab, point +
+                    (normal * impactVfxSpawnOffset), Quaternion.LookRotation(normal));
                 if(impactVfxLimeTime > 0f)
                 {
                     Destroy(impactGo, impactVfxLimeTime);

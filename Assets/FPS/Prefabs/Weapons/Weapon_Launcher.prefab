@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2225486910712267856}
   - component: {fileID: 7583640433812654122}
   - component: {fileID: 5658484607464363184}
-  - component: {fileID: 3132769988301120256}
+  - component: {fileID: 7770628034911977352}
   m_Layer: 8
   m_Name: Weapon_Launcher
   m_TagString: Untagged
@@ -167,9 +167,8 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 5849995467245898940, guid: 0e23901b938cf4f4eb86850d912715eb, type: 3}
   bulletsPerShot: 1
   bulletSpreadAngle: 0
-  ammoUseOnStartCharge: 1
-  lastChargeTriggerTimeTamp: 0
---- !u!114 &3132769988301120256
+  lastChareTriggerTimeTamp: 0
+--- !u!114 &7770628034911977352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,7 +177,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2225486910712267859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 995ceb3e2e76f8949aaf482dfc3491e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 314ed3e89631d284bb806206b609a8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Gameplay.ChargedWeaponEffectHandler
   chargingObject: {fileID: 2990922162098100103}
@@ -196,10 +195,10 @@ MonoBehaviour:
     Min: {x: 0.5, y: 0.5, z: 0.5}
     Max: {x: 1.5, y: 1.5, z: 1.5}
   spiningSpeed:
-    Min: 0
-    Max: 0
-  chargeSound: {fileID: 8300000, guid: d06f2933644a4974c990aea25c7ddff2, type: 3}
-  loopChargeWeaponSfx: {fileID: 8300000, guid: 600c107be4433a74cbb272c6911aa4f3, type: 3}
+    Min: 50
+    Max: 1500
+  chargeSound: {fileID: 8300000, guid: a0250b579098c29499f65cfd30b10504, type: 3}
+  loopChargeWeaponSfx: {fileID: 8300000, guid: 76cbd6048d33772459bfc1bccb4cfe94, type: 3}
   fadeLoopDuration: 0.5
   useProceduralPitchOnLoop: 0
   maxProceduralPitchValue: 2
