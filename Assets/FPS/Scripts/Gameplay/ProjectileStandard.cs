@@ -40,8 +40,8 @@ namespace Unity.FPS.Gameplay
         public AudioClip impactSfxClip;             //충돌 효과 사운드
 
         //데미지
-        public float damage = 15f;                  //데미지 량
-        [SerializeField] private DamageArea damageArea;              //범위 데미지 주기 객체
+        public float damage = 15f;                  //데미지 량        
+        private DamageArea damageArea;              //범위 데미지 주기 객체
         #endregion
 
         #region Unity Event Method
@@ -151,24 +151,28 @@ namespace Unity.FPS.Gameplay
         //충돌처리
         private void OnHit(Vector3 point, Vector3 normal, Collider collider)
         {
-            //데미지
+            //데미지 : 뷸렛/폭탄 여부 체크
             //Debug.Log($"damage: {damage}");
             if(damageArea)
             {
-                damageArea.InflictDamageArea(damage, point,
-                    hittableLayers,QueryTriggerInteraction.Collide, projectileBase.Owner);
+                //범위 공격 데미지 주기
+                damageArea.InflictDamageArea(damage, point, hittableLayers,
+                    QueryTriggerInteraction.Collide, projectileBase.Owner);
             }
-            Damageable damageable = collider.GetComponent<Damageable>();
-            if(damageable)
+            else
             {
-                damageable.InflictDamage(damage, false, projectileBase.Owner);
+                Damageable damageable = collider.GetComponent<Damageable>();
+                if (damageable)
+                {
+                    damageable.InflictDamage(damage, false, projectileBase.Owner);
+                }
             }
 
             //충돌 효과 (vfx, sfx)
             if(impactVfxPrefab)
             {
-                GameObject impactGo = Instantiate(impactVfxPrefab, point +
-                    (normal * impactVfxSpawnOffset), Quaternion.LookRotation(normal));
+                GameObject impactGo = Instantiate(impactVfxPrefab, point + (normal * impactVfxSpawnOffset),
+                    Quaternion.LookRotation(normal));
                 if(impactVfxLimeTime > 0f)
                 {
                     Destroy(impactGo, impactVfxLimeTime);

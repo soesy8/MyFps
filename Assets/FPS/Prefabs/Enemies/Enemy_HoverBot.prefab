@@ -41,10 +41,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3233149843197735917}
   - component: {fileID: 2396199060422527798}
-  - component: {fileID: 6870720908031773691}
-  - component: {fileID: 6259207388072592259}
-  - component: {fileID: 5251214983855566535}
-  - component: {fileID: 7971779175257068682}
+  - component: {fileID: 7842181987000188674}
+  - component: {fileID: 8754231770546854775}
+  - component: {fileID: 5983542504767596276}
+  - component: {fileID: 3044972793435267728}
+  - component: {fileID: 4201586681362900368}
+  - component: {fileID: 5539389112578296344}
   m_Layer: 0
   m_Name: Enemy_HoverBot
   m_TagString: Untagged
@@ -170,7 +172,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!195 &6870720908031773691
+--- !u!195 &7842181987000188674
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,7 +194,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6259207388072592259
+--- !u!114 &8754231770546854775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Game.Health
   maxHealth: 100
   criticalHealthRatio: 0.3
---- !u!114 &5251214983855566535
+--- !u!114 &5983542504767596276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Game.Destrucable
   delayTime: 0
---- !u!114 &7971779175257068682
+--- !u!114 &3044972793435267728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,6 +233,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efed2a383479524bb05df295bfd201c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.UI.WorldSpaceHealthbar
+  healthFillImage: {fileID: 7576076663025602906}
+--- !u!114 &4201586681362900368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3233149843197735905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5b7b03eb6385c48a9ae44df5533878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.AI.EnemyController
+  bodyMaterial: {fileID: 2100000, guid: c3dc5a90c49c99142999f85d6b419d80, type: 2}
+  onHitBodyGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 1, g: 1, b: 1, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 16384
+    ctime2: 49151
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
+  flashOnHitDuration: 0.5
+  damageSfx: {fileID: 8300000, guid: 39a8f0dbad1514a40948b1ea64fa5218, type: 3}
+  deathVfxPrefab: {fileID: 8950624839484268180, guid: 2a8f5052fe50f7b41b17149abb0f7414, type: 3}
+  deathVfxSpawnPosition: {fileID: 3632986063801220720}
+  deathSfx: {fileID: 8300000, guid: 8d9e23934afce9f4dad2f50fc1fc8083, type: 3}
+  eyeMaterial: {fileID: 2100000, guid: e6fdfd4e017234d43ac116abee8fa90a, type: 2}
+--- !u!114 &5539389112578296344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3233149843197735905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c8934b7b8f4084a628e4f6089bb456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.Game.Actor
+  affiliation: 0
+  aimPoint: {fileID: 0}
 --- !u!1 &4411762940897295170
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +406,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 788040023
   m_SortingOrder: 0
@@ -395,7 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5149226862717255391}
   - component: {fileID: 3017210459876896989}
-  - component: {fileID: 9109101623508006197}
+  - component: {fileID: 2890234755127619524}
   m_Layer: 10
   m_Name: Weapon_EyeLazers
   m_TagString: Untagged
@@ -517,7 +583,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9109101623508006197
+--- !u!114 &2890234755127619524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -541,20 +607,20 @@ MonoBehaviour:
     CrossHairColor: {r: 0, g: 0, b: 0, a: 0}
   aimZoomratio: 1
   aimOffset: {x: 0, y: 0, z: 0}
-  shootType: 0
+  shootType: 1
   maxAmmo: 100
-  delayBetweenShots: 2.5
+  delayBetweenShots: 0.5
   weaponMuzzle: {fileID: 3043950246116281646}
   muzzleFlashPrefab: {fileID: 0}
-  shootSfx: {fileID: 8300000, guid: 13b8a71ad65c30240b924b72acf3ef23, type: 3}
+  shootSfx: {fileID: 8300000, guid: c680d6dab76c2ed4da0dbba7637f3080, type: 3}
   recoilForce: 0.5
-  ProjectilePrefab: {fileID: 8303594528913653734, guid: c9387256d59c80f4f9f66257031ac197, type: 3}
+  ProjectilePrefab: {fileID: 7957884059986658234, guid: c9387256d59c80f4f9f66257031ac197, type: 3}
   bulletsPerShot: 1
   bulletSpreadAngle: 0
   lastChareTriggerTimeTamp: 0
   automaticReload: 0
   ammoReloadRate: 1
-  ammoReloadDeley: 2
+  ammoReloadDelay: 2
 --- !u!1 &5172578321802600877
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3945222175499381949}
+  - component: {fileID: 4689212512394873609}
   m_Layer: 0
   m_Name: DetectionModule
   m_TagString: Untagged
@@ -799,6 +866,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3233149843197735917}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4689212512394873609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013745491809113944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95a22ccc08c4b145862cd39601894f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.FPS.AI.DetectionModule
 --- !u!1 &7844559239388257163
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +921,7 @@ GameObject:
   - component: {fileID: 3632986063801220720}
   - component: {fileID: 8612379747975619418}
   - component: {fileID: 3850649864612260700}
-  - component: {fileID: 5556712550301714492}
+  - component: {fileID: 6876245279836209567}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -894,7 +973,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.48
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5556712550301714492
+--- !u!114 &6876245279836209567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

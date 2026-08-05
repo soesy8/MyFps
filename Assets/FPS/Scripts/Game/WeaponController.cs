@@ -1,5 +1,4 @@
 using System.Runtime.InteropServices.WindowsRuntime;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -93,9 +92,9 @@ namespace Unity.FPS.Game
         public float lastChareTriggerTimeTamp;              //발사 버튼을 누른 시간 저장
 
         //재장전 Reload
-        public bool automaticReload = true;                 //재장전 자동/수동
-        public float ammoReloadRate = 1f;                   //재장전 속도 (초당 재장전량)
-        public float ammoReloadDeley = 2f;                  //발사 후 딜레이 시간 이후에 재장전 시작
+        public bool automaticReload = true;             //재장전 자동/수동
+        public float ammoReloadRate = 1f;               //재장전 속도 (초당 재장전량)
+        public float ammoReloadDelay = 2f;              //발사 후 딜레이 시간 이후에 재장전 시작
         #endregion
 
         #region Unity Event Method
@@ -117,7 +116,6 @@ namespace Unity.FPS.Game
         {
             UpdateAmmo();
             UpdateCharge();
-
 
             //이번 프레임의 총구 이동 속도는
             if (Time.deltaTime > 0)
@@ -162,9 +160,10 @@ namespace Unity.FPS.Game
             {
                 CurrentAmmoRatio = currentAmmo / maxAmmo;
             }
-            //reload - 자동
-            if(automaticReload && currentAmmo < maxAmmo &&
-                IsCharge == false && lastTimeShot + ammoReloadDeley < Time.time)
+            
+            //Reload - 자동
+            if(automaticReload && currentAmmo < maxAmmo && IsCharge == false
+                && lastTimeShot + ammoReloadDelay < Time.time)
             {
                 //재장전 속도 (초당 재장전량)
                 currentAmmo += ammoReloadRate * Time.deltaTime;
@@ -172,14 +171,15 @@ namespace Unity.FPS.Game
             }
         }
 
-        //reload - 수동
+        //Reload - 수동
         public void Reload()
         {
-            if(automaticReload || IsCharge || currentAmmo >= maxAmmo) return;
+            if (automaticReload || IsCharge || currentAmmo >= maxAmmo)
+                return;
 
             currentAmmo = maxAmmo;
 
-            //재장전에 따른 비용처리, 이펙트 효과
+            //재장전에 따른 비용 처리, 이펙트 효과
         }
 
         //충전
@@ -240,7 +240,6 @@ namespace Unity.FPS.Game
                     {
                         TryBeginCharge();
                     }
-                    
                     if (inputUp == true)
                     {
                         return TryReleaseCharge();
